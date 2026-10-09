@@ -3,119 +3,234 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yuvaan Labs — independent software studio</title>
-<meta name="description" content="Yuvaan Labs is an independent software studio in India. We make VedPatrika, Agent Notch and MindSync.">
+<title>Yuvaan Labs</title>
+<meta name="description" content="Yuvaan Labs is a software studio in India. We make VedPatrika, Agent Notch and MindSync, and run them ourselves.">
 <link rel="canonical" href="https://yuvaanlabs.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yuvaanlabs.com/">
 <meta property="og:title" content="Yuvaan Labs">
-<meta property="og:description" content="Independent software studio in India. Makers of VedPatrika, Agent Notch and MindSync.">
+<meta property="og:description" content="A software studio in India. Makers of VedPatrika, Agent Notch and MindSync.">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1917'/%3E%3Cpath d='M18 16l14 18 14-18M32 34v16' stroke='%23f59e0b' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#2e4bff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232e4bff'/%3E%3Cpath d='M17 14l15 20 15-20M32 34v17' stroke='%23fff' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Yuvaan Labs","url":"https://yuvaanlabs.com/","email":"hello@yuvaanlabs.com","founder":{"@type":"Person","name":"Aditya Arya","url":"https://adityarya.dev/"},"sameAs":["https://github.com/adityarya24"]}</script>
 <style>
   :root {
-    --bg: #faf7f2; --surface: #ffffff; --text: #1c1917; --muted: #57534e; --faint: #a8a29e;
-    --line: #e7e2d9; --accent: #d97706; --accent-soft: #fef3c7;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #14110f; --surface: #1c1917; --text: #f5f1ea; --muted: #b5ada3; --faint: #78716c;
-      --line: #2e2925; --accent: #f59e0b; --accent-soft: rgba(245,158,11,.14); }
+    --paper: #f2f3f5;
+    --ink: #0f1630;
+    --ink-soft: #4a5170;
+    --cobalt: #2e4bff;
+    --rule: #d9dce4;
+    --display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+    --body: "Instrument Sans", system-ui, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font: 16px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font: 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
   a { color: inherit; }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; }
-  .mark { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; text-decoration: none; }
-  .mark svg { width: 30px; height: 30px; }
-  nav a.contact { font-size: 14px; color: var(--muted); text-decoration: none; }
-  nav a.contact:hover { color: var(--accent); }
-  header { padding: 72px 0 56px; }
-  .eyebrow { font-size: 13px; font-weight: 500; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
-  h1 { font: 400 clamp(40px, 7vw, 68px)/1.05 "Fraunces", Georgia, serif; letter-spacing: -.025em; margin: 14px 0 22px; max-width: 760px; }
-  h1 em { font-style: italic; color: var(--accent); }
-  .lede { font-size: 19px; color: var(--muted); max-width: 620px; }
-  h2 { font: 400 30px/1.2 "Fraunces", Georgia, serif; letter-spacing: -.01em; margin-bottom: 8px; }
-  .note { color: var(--muted); margin-bottom: 28px; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px 24px; display: flex; flex-direction: column; text-decoration: none; transition: border-color .15s, transform .15s; }
-  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .tag { align-self: flex-start; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-bottom: 18px; }
-  .card h3 { font: 600 22px/1.2 "Fraunces", Georgia, serif; margin-bottom: 8px; }
-  .card p { color: var(--muted); font-size: 15px; flex: 1; }
-  .card .go { margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--text); }
-  .card:hover .go { color: var(--accent); }
-  section { padding: 40px 0; }
-  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; border-top: 1px solid var(--line); padding-top: 56px; margin-top: 32px; }
-  .about p { color: var(--muted); margin-bottom: 14px; }
-  .about p a { color: var(--accent); text-underline-offset: 3px; }
-  .cta { margin-top: 8px; display: inline-flex; padding: 12px 22px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 600; font-size: 15px; text-decoration: none; }
-  .cta:hover { background: var(--accent); color: #fff; }
-  footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 28px 0 40px; font-size: 13px; color: var(--faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  @media (max-width: 760px) {
-    header { padding: 40px 0 36px; }
-    .grid, .about { grid-template-columns: 1fr; }
-    .about { gap: 12px; }
+  a:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+  .bar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font: 700 18px var(--display); text-decoration: none; letter-spacing: -.01em; }
+  .brand svg { width: 32px; height: 32px; flex: none; }
+  .bar nav { display: flex; gap: 26px; font-size: 15px; }
+  .bar nav a { text-decoration: none; color: var(--ink-soft); }
+  .bar nav a:hover { color: var(--cobalt); }
+
+  /* hero: the wordmark is the image */
+  .hero { padding: 9vh 0 72px; }
+  .word {
+    font: 800 clamp(76px, 17.5vw, 248px)/.86 var(--display);
+    font-variation-settings: "wdth" 84, "opsz" 96;
+    letter-spacing: -.02em; margin-left: -.04em;
+    display: flex; flex-wrap: wrap; column-gap: .18em;
+  }
+  .word span { display: inline-block; }
+  .word .labs { color: var(--cobalt); }
+  .hero-foot { display: grid; grid-template-columns: minmax(0, 560px) 1fr; gap: 40px; align-items: end; margin-top: 48px; }
+  .hero-foot p { font-size: 22px; line-height: 1.45; }
+  .index { justify-self: end; list-style: none; text-align: right; font: 600 15px var(--body); }
+  .index li + li { margin-top: 6px; }
+  .index a { text-decoration: none; display: inline-flex; gap: 10px; align-items: center; }
+  .index a::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--dot); }
+  .index a:hover { color: var(--cobalt); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .word span { animation: rise .9s cubic-bezier(.2, .8, .2, 1) both; }
+    .word span:nth-child(2) { animation-delay: .12s; }
+    @keyframes rise { from { transform: translateY(.35em); opacity: 0; } }
+  }
+
+  /* product bands: each product keeps its own colours */
+  .band { padding: 96px 0; color: var(--fg); background: var(--bg); }
+  .band .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; }
+  .band.flip .copy { order: 2; }
+  .kind { font-size: 15px; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
+  .band h2 { font: 800 clamp(48px, 6.4vw, 88px)/.95 var(--display); font-variation-settings: "wdth" 86, "opsz" 96; letter-spacing: -.015em; margin-bottom: 22px; }
+  .band .lead { font-size: 20px; line-height: 1.5; margin-bottom: 26px; max-width: 30em; }
+  .facts { list-style: none; border-top: 1px solid var(--line); margin-bottom: 32px; }
+  .facts li { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; color: var(--soft); }
+  .facts li b { color: var(--fg); font-weight: 600; }
+  .go { display: inline-block; padding: 13px 24px; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-weight: 600; font-size: 15.5px; text-decoration: none; }
+  .go:hover { filter: brightness(1.08); }
+  .shot { border-radius: 14px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55); }
+  .shot img { display: block; width: 100%; height: auto; }
+
+  .vp { --bg: #0e3b30; --fg: #f6efe0; --soft: #c9d6cf; --accent: #e3b866; --on-accent: #0e3b30; --line: rgba(246, 239, 224, .16); }
+  .an { --bg: #0b0d10; --fg: #eef2f0; --soft: #9aa5a0; --accent: #19c37d; --on-accent: #04130c; --line: rgba(238, 242, 240, .12); }
+  .an .shot { box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 30px 80px -10px rgba(25, 195, 125, .25); border-radius: 22px; }
+  .ms { --bg: #17123a; --fg: #efeefe; --soft: #b3b0da; --accent: #8fa6ff; --on-accent: #0e0a2a; --line: rgba(239, 238, 254, .14); }
+
+  .term { background: #0c0a22; border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6), 0 0 0 1px rgba(143, 166, 255, .18); font: 14.5px/1.75 "JetBrains Mono", ui-monospace, monospace; color: #d9dcff; overflow: hidden; }
+  .term .top { display: flex; gap: 7px; padding: 14px 16px; border-bottom: 1px solid rgba(143, 166, 255, .14); }
+  .term .top i { width: 11px; height: 11px; border-radius: 50%; background: #2c275c; }
+  .term pre { padding: 20px 22px 24px; overflow-x: auto; white-space: pre; font: inherit; }
+  .term .c { color: #7d7aa8; }
+  .term .p { color: #8fa6ff; }
+
+  .studio { padding: 112px 0 40px; }
+  .studio .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .studio h2 { font: 800 clamp(40px, 5vw, 64px)/1 var(--display); font-variation-settings: "wdth" 86, "opsz" 96; letter-spacing: -.012em; }
+  .studio p { color: var(--ink-soft); margin-bottom: 18px; max-width: 34em; }
+  .studio p a { color: var(--cobalt); text-underline-offset: 3px; }
+  .services { margin-top: 30px; padding: 22px 24px; border-radius: 14px; background: #fff; border: 1px solid var(--rule); }
+  .services h3 { font: 700 20px var(--display); margin-bottom: 6px; }
+  .services p { margin: 0; }
+
+  .contact { padding: 96px 0 40px; }
+  .contact .say { font-size: 18px; color: var(--ink-soft); margin-bottom: 10px; }
+  .mail { font: 800 clamp(30px, 7.4vw, 104px)/1 var(--display); font-variation-settings: "wdth" 84, "opsz" 96; letter-spacing: -.018em; color: var(--cobalt); text-decoration: none; overflow-wrap: anywhere; }
+  .mail:hover { text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .1em; }
+  footer { margin-top: 80px; padding: 24px 0 36px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; font-size: 14px; color: var(--ink-soft); }
+  footer a { text-underline-offset: 3px; }
+
+  @media (max-width: 860px) {
+    .wrap { padding: 0 16px; }
+    .bar nav { display: none; }
+    .hero { padding: 40px 0 56px; }
+    .hero-foot { grid-template-columns: 1fr; margin-top: 32px; }
+    .hero-foot p { font-size: 19px; }
+    .index { justify-self: start; text-align: left; }
+    .band { padding: 64px 0; }
+    .band .wrap, .studio .wrap { grid-template-columns: 1fr; gap: 36px; }
+    .band.flip .copy { order: 0; }
+    .term { font-size: 12.5px; }
+    .studio { padding-top: 80px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <nav>
-    <a class="mark" href="/" aria-label="Yuvaan Labs home">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="currentColor"/><path d="M18 16l14 18 14-18M32 34v16" stroke="#f59e0b" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <header class="bar">
+    <a class="brand" href="/" aria-label="Yuvaan Labs home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2e4bff"/><path d="M17 14l15 20 15-20M32 34v17" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Yuvaan Labs
     </a>
-    <a class="contact" href="mailto:hello@yuvaanlabs.com">hello@yuvaanlabs.com</a>
-  </nav>
-
-  <header>
-    <div class="eyebrow">Independent software studio · India</div>
-    <h1>Small, useful software, <em>built and run</em> by us.</h1>
-    <p class="lede">Yuvaan Labs makes products people pay for and tools developers use every day. One live consumer product, one desktop app, one open-source developer tool.</p>
+    <nav aria-label="Main">
+      <a href="#products">Products</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section>
-    <h2>Products</h2>
-    <p class="note">Everything here is shipped and in use.</p>
-    <div class="grid">
-      <a class="card" href="https://vedpatrika.in">
-        <span class="tag">Live · India</span>
-        <h3>VedPatrika</h3>
-        <p>Vedic astrology reports in Hindi and English. A full Janma Patrika for ₹299, calculated with Swiss Ephemeris and delivered as a PDF on email and WhatsApp in minutes.</p>
-        <span class="go">vedpatrika.in →</span>
-      </a>
-      <a class="card" href="https://adityarya.dev/agent-notch/">
-        <span class="tag">Windows app</span>
-        <h3>Agent Notch</h3>
-        <p>A slim notch on the edge of your Windows screen showing live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode. Free and open source. Pro adds click-to-terminal.</p>
-        <span class="go">See Agent Notch →</span>
-      </a>
-      <a class="card" href="https://github.com/adityarya24/mindsync-ai">
-        <span class="tag">Open source · PyPI</span>
-        <h3>MindSync</h3>
-        <p>Local-first MCP orchestration, persistent shared memory and automatic task routing for coding agents.</p>
-        <span class="go">GitHub →</span>
-      </a>
+  <section class="hero">
+    <h1 class="word" aria-label="Yuvaan Labs"><span>Yuvaan</span><span class="labs">Labs</span></h1>
+    <div class="hero-foot">
+      <p>A software studio in India. We build our own products and run them ourselves: the code, the payments, the servers and the support inbox.</p>
+      <ul class="index" id="products" aria-label="Products">
+        <li><a href="#vedpatrika" style="--dot:#e3b866">VedPatrika</a></li>
+        <li><a href="#agent-notch" style="--dot:#19c37d">Agent Notch</a></li>
+        <li><a href="#mindsync" style="--dot:#8fa6ff">MindSync</a></li>
+      </ul>
     </div>
   </section>
+</div>
 
-  <section class="about">
-    <h2>About</h2>
+<section class="band vp" id="vedpatrika">
+  <div class="wrap">
+    <div class="copy">
+      <div class="kind">Consumer product, live in India</div>
+      <h2>VedPatrika</h2>
+      <p class="lead">Vedic birth reports in Hindi and English. Every conclusion is printed with the reason behind it, so a family can check the work.</p>
+      <ul class="facts">
+        <li><b>₹299</b> for a full Janma Patrika</li>
+        <li>Calculated with <b>Swiss Ephemeris</b></li>
+        <li>PDF delivered on <b>WhatsApp and email</b> in minutes</li>
+      </ul>
+      <a class="go" href="https://vedpatrika.in">Visit vedpatrika.in</a>
+    </div>
+    <div class="shot"><img src="assets/vedpatrika.webp" width="1280" height="800" alt="The VedPatrika home page, in Hindi, with the Janma Patrika offer at ₹299" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="band an flip" id="agent-notch">
+  <div class="wrap">
+    <div class="copy">
+      <div class="kind">Desktop app for Windows</div>
+      <h2>Agent Notch</h2>
+      <p class="lead">A slim notch on the edge of your screen that shows how much quota your coding agents have left, before you hit the limit.</p>
+      <ul class="facts">
+        <li>Live usage for <b>Claude Code, Codex, Gemini, Cursor, Grok and OpenCode</b></li>
+        <li><b>Free and open source</b></li>
+        <li><b>Pro</b> adds click-to-terminal</li>
+      </ul>
+      <a class="go" href="https://adityarya.dev/agent-notch/">See Agent Notch</a>
+    </div>
+    <div class="shot"><img src="assets/agent-notch.webp" width="600" height="440" alt="Agent Notch showing Codex at 24% of the current session and 18% of the weekly limit" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="band ms" id="mindsync">
+  <div class="wrap">
+    <div class="copy">
+      <div class="kind">Open-source developer tool</div>
+      <h2>MindSync</h2>
+      <p class="lead">Local-first MCP orchestration, persistent shared memory and automatic task routing for coding agents.</p>
+      <ul class="facts">
+        <li>Published on <b>PyPI</b> as mindsync-ai</li>
+        <li>Runs on your machine, with <b>one memory shared</b> across agents</li>
+      </ul>
+      <a class="go" href="https://github.com/adityarya24/mindsync-ai">View on GitHub</a>
+    </div>
+    <div class="term" role="img" aria-label="Terminal commands from the MindSync README">
+      <div class="top"><i></i><i></i><i></i></div>
+<pre><span class="p">$</span> pip install mindsync-ai
+<span class="p">$</span> mindsync setup --mode auto
+<span class="p">$</span> mindsync doctor
+
+<span class="c"># ask any agent what was decided last week</span>
+<span class="p">$</span> mindsync memory recall --project my-repo \
+    --query "database migration decision"</pre>
+    </div>
+  </div>
+</section>
+
+<section class="studio" id="studio">
+  <div class="wrap">
+    <h2>One founder, a team of agents.</h2>
     <div>
-      <p>Yuvaan Labs is run by <a href="https://adityarya.dev/">Aditya Arya</a>, who went from running a café to trading to building software with AI agents. The studio designs, builds and operates its own products end to end: payments, delivery, support and the servers they run on.</p>
-      <p>We also take on a small number of client projects in AI agents, MCP servers and WhatsApp automation.</p>
-      <a class="cta" href="mailto:hello@yuvaanlabs.com">Get in touch</a>
+      <p>Yuvaan Labs is the studio of <a href="https://adityarya.dev/">Aditya Arya</a>. He ran a café in Gwalior for four years, then traded the markets, then started building software with AI agents.</p>
+      <p>Agents write code, watch the servers and draft support replies. A person reviews what reaches a customer.</p>
+      <div class="services">
+        <h3>Client work</h3>
+        <p>We take a few projects at a time: AI agents, MCP servers and WhatsApp automation.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<div class="wrap">
+  <section class="contact" id="contact">
+    <p class="say">Write to us</p>
+    <a class="mail" href="mailto:hello@yuvaanlabs.com">hello@yuvaanlabs.com</a>
+  </section>
   <footer>
-    <span>© 2026 Yuvaan Labs · Proprietorship, India</span>
-    <span><a href="https://github.com/adityarya24">GitHub</a> · <a href="https://adityarya.dev/">adityarya.dev</a></span>
+    <span>© 2026 Yuvaan Labs, a proprietorship registered in India</span>
+    <span><a href="https://github.com/adityarya24">GitHub</a> &nbsp; <a href="https://adityarya.dev/">adityarya.dev</a></span>
   </footer>
 </div>
 </body>
