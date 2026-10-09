@@ -79,21 +79,19 @@
     .sign::before, .tilt .glow { animation: power 1.7s ease-out both; }
     .tilt .face { animation: face 1.7s ease-out both; }
     .hero h1, .hero .sub, .hero .actions { animation: rise .9s cubic-bezier(.2, .8, .2, 1) both; }
-    .hero h1 { animation-delay: .9s; } .hero .sub { animation-delay: 1s; } .hero .actions { animation-delay: 1.1s; }
+    .hero h1 { animation-delay: .9s; } .hero .sub { animation-delay: 1s; } .hero .actions { animation-delay: 1.1s; } .caps { animation: rise .9s 1.2s cubic-bezier(.2, .8, .2, 1) both; }
     @keyframes power { 0%, 28% { opacity: 0; } 31% { opacity: .9; } 35% { opacity: .1; } 44% { opacity: 1; } 48% { opacity: .5; } 100% { opacity: 1; } }
     @keyframes face { 0%, 28% { filter: brightness(.22); } 31% { filter: brightness(1); } 35% { filter: brightness(.4); } 44% { filter: brightness(1.05); } 48% { filter: brightness(.8); } 100% { filter: brightness(1); } }
     @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
   }
   @media (max-width: 520px) { .sign { width: 150px; height: 156px; } }
 
-  /* hero stage: the three real products, together */
-  .stage { position: relative; height: 560px; margin: 72px auto 0; max-width: 1040px; }
-  .stage > * { position: absolute; border-radius: 14px; overflow: hidden; box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .8), 0 0 0 1px var(--line-2); }
-  .stage .vp { left: 6%; top: 0; width: 64%; }
-  .stage .an { right: 3%; top: 90px; width: 34%; border-radius: 20px; }
-  .stage .ms { left: 0; bottom: 30px; width: 46%; }
-  .stage::after { content: ""; position: absolute; left: -24px; right: -24px; bottom: -2px; height: 180px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; box-shadow: none; border-radius: 0; }
-  .label { position: absolute; left: 12px; bottom: 12px; padding: 4px 10px; border-radius: 999px; font-size: 12px; background: rgba(16, 17, 20, .78); border: 1px solid var(--line-2); color: var(--text); backdrop-filter: blur(6px); }
+  /* hero product capsules */
+  .caps { position: relative; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 44px; padding-bottom: 24px; }
+  .caps a { display: inline-flex; align-items: center; gap: 9px; height: 40px; padding: 0 20px; border-radius: 999px; font: 500 15px var(--head); color: var(--gold-2);
+    border: 1px solid rgba(198, 166, 106, .45); background: linear-gradient(180deg, rgba(232, 213, 175, .12), rgba(198, 166, 106, .04)); box-shadow: inset 0 1px 0 rgba(255, 240, 210, .12), 0 0 24px -8px rgba(198, 166, 106, .5); transition: border-color .2s, color .2s, box-shadow .2s; }
+  .caps a::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+  .caps a:hover { color: var(--text); border-color: var(--gold-2); box-shadow: inset 0 1px 0 rgba(255, 240, 210, .2), 0 0 30px -6px rgba(198, 166, 106, .7); }
 
   .term { background: #100f0d; font: 13.5px/1.75 "JetBrains Mono", ui-monospace, monospace; color: #e8dcc4; }
   .term .bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
@@ -102,12 +100,6 @@
   .term .p { color: var(--gold-2); }
   .term .c { color: #6f685c; }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .stage > * { animation: lift 1s 1.1s cubic-bezier(.2, .8, .2, 1) both; }
-    .stage .an { animation-delay: 1.25s; }
-    .stage .ms { animation-delay: 1.4s; }
-    @keyframes lift { from { opacity: 0; transform: translateY(28px); } }
-  }
 
   /* sections */
   section.block { padding: 120px 0 0; }
@@ -151,8 +143,9 @@
 
   /* founder */
   .founder { display: block; text-align: center; background: var(--raise); border: 1px solid var(--line); border-radius: 22px; padding: 64px 40px; }
-  .founder blockquote { font: 500 clamp(24px, 3vw, 36px)/1.3 var(--head); letter-spacing: -.02em; max-width: 24em; margin: 0 auto; }
-  .founder .who { margin-top: 22px; color: var(--dim); font-size: 15px; }
+  .founder blockquote { font: 500 clamp(24px, 3vw, 36px)/1.3 var(--head); letter-spacing: -.02em; max-width: 24em; margin: 0 auto; text-wrap: balance; }
+  .founder .from { font: 600 13px var(--head); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+  .founder .who { max-width: 40em; margin: 26px auto 0; text-align: right; color: var(--dim); font-size: 16px; }
   .founder .who a { color: var(--text); border-bottom: 1px solid var(--line-2); }
   .founder .who a:hover { border-color: var(--gold-2); }
 
@@ -174,10 +167,6 @@
   @media (max-width: 900px) {
     .nav-links a:not(.pill) { display: none; }
     .hero { padding-top: 72px; }
-    .stage { height: auto; margin-top: 48px; display: grid; gap: 14px; }
-    .stage > * { position: relative; inset: auto; width: 100% !important; }
-    .stage .an { width: 78% !important; justify-self: end; margin-top: -60px; }
-    .stage::after { display: none; }
     .t-vp { flex-direction: column; }
     .t-vp .txt { padding: 28px; }
     .t-vp .pic { margin: 0 0 0 28px; }
@@ -237,17 +226,11 @@
         <a class="btn" href="#contact">Start a project</a>
       </div>
 
-      <div class="stage" aria-hidden="true">
-        <div class="vp"><img src="assets/vedpatrika.webp" width="1280" height="800" alt=""><span class="label">VedPatrika</span></div>
-        <div class="ms term">
-          <div class="bar"><i></i><i></i><i></i></div>
-<pre><span class="p">$</span> pip install mindsync-ai
-<span class="p">$</span> mindsync setup --mode auto
-<span class="p">$</span> mindsync doctor</pre>
-          <span class="label">MindSync</span>
-        </div>
-        <div class="an"><img src="assets/agent-notch.webp" width="600" height="440" alt=""><span class="label">Agent Notch</span></div>
-      </div>
+      <nav class="caps" aria-label="Our products">
+        <a href="#vedpatrika">VedPatrika</a>
+        <a href="#agent-notch">Agent Notch</a>
+        <a href="#mindsync">MindSync</a>
+      </nav>
     </div>
   </section>
 
@@ -285,7 +268,7 @@
       </div>
 
       <div class="bento">
-        <article class="tile t-vp">
+        <article class="tile t-vp" id="vedpatrika">
           <div class="txt">
             <div class="kind"><span class="dot"></span>Consumer, India</div>
             <h3>VedPatrika</h3>
@@ -296,7 +279,7 @@
           <div class="pic"><img src="assets/vedpatrika.webp" width="1280" height="800" alt="The VedPatrika home page in Hindi, offering the Janma Patrika at ₹299" loading="lazy"></div>
         </article>
 
-        <article class="tile t-an">
+        <article class="tile t-an" id="agent-notch">
           <div class="txt">
             <div class="kind"><span class="dot"></span>Windows app</div>
             <h3>Agent Notch</h3>
@@ -307,7 +290,7 @@
           <div class="pic"><img src="assets/agent-notch.webp" width="600" height="440" alt="Agent Notch showing Codex at 24% of its session limit" loading="lazy"></div>
         </article>
 
-        <article class="tile t-ms">
+        <article class="tile t-ms" id="mindsync">
           <div class="txt">
             <div class="kind"><span class="dot"></span>Open source, PyPI</div>
             <h3>MindSync</h3>
@@ -333,8 +316,9 @@
     <div class="wrap">
       <div class="founder">
         <div>
+          <p class="from">From the founder</p>
           <blockquote>“Different industries taught me the same lesson: understand people first, then build what they actually need.”</blockquote>
-          <p class="who"><a href="https://adityarya.dev/">Aditya Arya</a>, founder</p>
+          <p class="who">— <a href="https://adityarya.dev/">Aditya Arya</a></p>
         </div>
       </div>
     </div>
