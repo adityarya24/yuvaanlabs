@@ -157,6 +157,14 @@
   .t-ms .term .o { color: #b4b0a8; }
   .t-ms .term .k { color: var(--gold-2); }
 
+  /* in the lab: smaller, quieter, no links */
+  .lab { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .lab .item { background: transparent; border: 1px dashed var(--line-2); border-radius: 18px; padding: 26px 26px 24px; }
+  .lab .kind { font-size: 13px; color: var(--faint); display: flex; align-items: center; gap: 8px; }
+  .lab .kind .wip { margin-left: auto; font-size: 12px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--dim); }
+  .lab h3 { font: 600 22px/1.2 var(--head); letter-spacing: -.015em; margin: 12px 0 8px; }
+  .lab p { color: var(--dim); font-size: 15px; }
+
   /* build, ship, run */
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .pillar { background: var(--raise); border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
@@ -199,6 +207,7 @@
     .t-vp .txt { padding: 28px; }
     .t-vp .pic { margin: 0 0 0 28px; }
     .t-an, .t-ms { grid-column: span 6; }
+    .lab { grid-template-columns: 1fr; }
     .pillars { grid-template-columns: 1fr; }
     .founder { padding: 40px 22px; }
     section.block { padding-top: 88px; }
@@ -328,6 +337,32 @@
     </div>
   </section>
 
+  <section class="block" id="lab">
+    <div class="wrap">
+      <div class="head">
+        <h2>In the lab.</h2>
+        <p>What we are building next. Not released yet, so there is nothing to download.</p>
+      </div>
+      <div class="lab">
+        <article class="item">
+          <div class="kind">Windows, MCP server<span class="wip">In progress</span></div>
+          <h3>Deskter</h3>
+          <p>Lets a coding agent see and use the Windows desktop, with checks before every click and a hard block on password managers.</p>
+        </article>
+        <article class="item">
+          <div class="kind">Resume tool<span class="wip">In progress</span></div>
+          <h3>DropCV</h3>
+          <p>One reviewed master profile, then a one-page resume for each job, where every line traces back to a fact you wrote.</p>
+        </article>
+        <article class="item">
+          <div class="kind">Video tool<span class="wip">In progress</span></div>
+          <h3>Beatreel</h3>
+          <p>Raw clips and a song become a beat-synced 9:16 reel. The footage is analysed on your machine and never uploaded.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="approach">
     <div class="wrap">
       <div class="head">
@@ -409,7 +444,7 @@
   (function () {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
     document.documentElement.classList.add('js');
-    var els = document.querySelectorAll('.block .head, .pillar, .tile, .founder, .cta .wrap');
+    var els = document.querySelectorAll('.block .head, .pillar, .tile, .lab .item, .founder, .cta .wrap');
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px 10% 0px' });
