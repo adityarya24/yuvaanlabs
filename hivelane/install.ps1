@@ -15,14 +15,17 @@ function Install-Hivelane {
     $tmp = Join-Path ([IO.Path]::GetTempPath()) ("hivelane-" + [Guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $tmp | Out-Null
     try {
-        Write-Host "Downloading Hivelane ($name)..."
-        $zip = Join-Path $tmp "$name.zip"
-        Invoke-WebRequest -UseBasicParsing "$base/$name.zip" -OutFile $zip
-        $sums = (Invoke-WebRequest -UseBasicParsing "$base/SHA256SUMS").Content
+        # The site's CDN can serve an old copy for a few minutes after a release.
+        # Fetch the checksums uncached, then ask for the zip by its hash so both
+        # come from the same release.
+        $sums = (Invoke-WebRequest -UseBasicParsing "$base/SHA256SUMS?t=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())").Content
         if ($sums -is [byte[]]) { $sums = [Text.Encoding]::UTF8.GetString($sums) }
         $line = ($sums -split "`n") | Where-Object { $_ -match "\s\*?$name\.zip\s*$" } | Select-Object -First 1
         if (-not $line) { throw "No checksum published for $name.zip. Nothing was installed." }
         $expected = ($line -split '\s+')[0].ToLower()
+        Write-Host "Downloading Hivelane ($name)..."
+        $zip = Join-Path $tmp "$name.zip"
+        Invoke-WebRequest -UseBasicParsing "$base/$name.zip?sha256=$expected" -OutFile $zip
         $actual = (Get-FileHash -Algorithm SHA256 $zip).Hash.ToLower()
         if ($expected -ne $actual) { throw 'Checksum mismatch: the download is damaged or was changed. Nothing was installed.' }
 

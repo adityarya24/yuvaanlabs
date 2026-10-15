@@ -24,10 +24,15 @@ command -v sha256sum >/dev/null 2>&1 || die "sha256sum is required."
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT INT TERM
 
+# The site's CDN can serve an old copy for a few minutes after a release.
+# Fetch the checksums uncached, then ask for the archive by its hash so both
+# come from the same release.
+curl -fsSL "$BASE/SHA256SUMS?t=$(date +%s)" -o "$TMP/SHA256SUMS"
+SUM="$(grep " \*\{0,1\}$NAME.tar.gz\$" "$TMP/SHA256SUMS" | cut -d' ' -f1)"
+[ -n "$SUM" ] || die "no checksum published for $NAME.tar.gz. Nothing was installed."
 say "Downloading Hivelane ($NAME)..."
-curl -fSL --progress-bar "$BASE/$NAME.tar.gz" -o "$TMP/$NAME.tar.gz"
-curl -fsSL "$BASE/SHA256SUMS" -o "$TMP/SHA256SUMS"
-(cd "$TMP" && grep " $NAME.tar.gz\$" SHA256SUMS | sha256sum -c --status) \
+curl -fSL --progress-bar "$BASE/$NAME.tar.gz?sha256=$SUM" -o "$TMP/$NAME.tar.gz"
+printf '%s  %s\n' "$SUM" "$TMP/$NAME.tar.gz" | sha256sum -c --status \
   || die "checksum mismatch: the download is damaged or was changed. Nothing was installed."
 
 tar -xzf "$TMP/$NAME.tar.gz" -C "$TMP"
