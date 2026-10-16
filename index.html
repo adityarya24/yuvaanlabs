@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yuvaan Labs | Build. Ship. Run.</title>
-<meta name="description" content="Yuvaan Labs is an independent software lab in India. We build VedPatrika, Agent Notch and MindSync, and build AI agents for clients.">
+<meta name="description" content="Yuvaan Labs is an independent software lab in India. We build VedPatrika, Agent Notch and Hivelane, and build AI agents for clients.">
 <link rel="canonical" href="https://yuvaanlabs.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yuvaanlabs.com/">
 <meta property="og:title" content="Yuvaan Labs">
-<meta property="og:description" content="An independent software lab in India. Makers of VedPatrika, Agent Notch and MindSync.">
+<meta property="og:description" content="An independent software lab in India. Makers of VedPatrika, Agent Notch and Hivelane.">
 <meta property="og:image" content="https://yuvaanlabs.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -272,7 +272,7 @@
       <nav class="caps" aria-label="Our products">
         <a href="#vedpatrika">VedPatrika</a>
         <a href="#agent-notch">Agent Notch</a>
-        <a href="#mindsync">MindSync</a>
+        <a href="#hivelane">Hivelane</a>
       </nav>
     </div>
   </section>
@@ -307,29 +307,25 @@
           <div class="pic"><img src="assets/agent-notch.webp" width="600" height="440" alt="Agent Notch showing Codex at 24% of its session limit" loading="lazy"></div>
         </article>
 
-        <article class="tile t-ms" id="mindsync">
+        <article class="tile t-ms" id="hivelane">
           <div class="txt">
-            <div class="kind"><span class="dot"></span>Open source, PyPI<span class="live">Live</span></div>
-            <h3>MindSync</h3>
-            <p>Local-first MCP orchestration, persistent shared memory and automatic task routing for coding agents.</p>
-            <div class="meta"><span>pip install mindsync-ai</span><span>Runs on your machine</span></div>
-            <a class="open" href="https://github.com/adityarya24/mindsync-ai">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <div class="kind"><span class="dot"></span>CLI for coding agents<span class="live">Launching 20 Oct</span></div>
+            <h3>Hivelane</h3>
+            <p>Air traffic control for your coding agents. The agent you talk to stays in charge, Hivelane routes each task to the agent that fits it, and hands the work on when a seat runs low.</p>
+            <div class="meta"><span>7-day trial, no card</span><span>Runs on your machine</span></div>
+            <a class="open" href="/hivelane/">See Hivelane <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
           <div class="pic">
-            <div class="term" role="img" aria-label="Example of a MindSync memory recall command and its JSON result">
+            <div class="term" role="img" aria-label="Example of hivelane resume handing a paused Claude task to Codex">
               <div class="bar"><i></i><i></i><i></i></div>
-<pre><span class="p">$</span> mindsync memory recall \
-    --project my-repo \
-    --query "database migration"
-<span class="o">{
-  "matches": [
-    {
-      <span class="k">"text"</span>: "Use Alembic; never edit an
-               applied migration",
-      <span class="k">"similarity"</span>: 0.83
-    }
-  ]
-}</span></pre>
+<pre><span class="p">$</span> hivelane resume
+<span class="o">Paused task: claude seat at 91%
+Can take over:
+  1) codex (48% free)
+  2) grok (usage unknown)
+  3) cursor (usage unknown)</span>
+<span class="p">?</span> Continue with which agent? 1
+<span class="k">Started codex as job 20261014122508-6783ab</span></pre>
             </div>
           </div>
         </article>

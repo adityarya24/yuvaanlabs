@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070a10" />
+  <title>Privacy Policy · Hivelane</title>
+  <meta name="description" content="What Hivelane, the trial and this website collect, and why." />
+  <link rel="canonical" href="https://yuvaanlabs.com/hivelane/privacy/" />
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#070a10; --ink:#e8eef6; --muted:#94a2b6; --faint:#5f6c80; --line:#1a2332; --accent:#f5a524; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--ink); font:16px/1.7 "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; text-underline-offset:3px; }
+    .wrap { max-width:720px; margin:0 auto; padding:0 16px; }
+    nav { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; padding:22px 0; font-size:14px; }
+    nav .mark { font:600 17px "Space Grotesk", "Inter", sans-serif; color:var(--ink); }
+    nav .links { display:flex; gap:16px; }
+    nav .links a { color:var(--muted); }
+    h1 { font:600 clamp(32px,6vw,46px)/1.1 "Space Grotesk", "Inter", sans-serif; letter-spacing:-.02em; margin:32px 0 8px; }
+    .updated { color:var(--faint); font-size:14px; margin-bottom:32px; }
+    h2 { font:600 19px/1.4 "Space Grotesk", "Inter", sans-serif; margin:32px 0 8px; }
+    p, li { color:var(--muted); }
+    p + p { margin-top:12px; }
+    ul { padding-left:20px; margin-top:8px; }
+    li + li { margin-top:6px; }
+    strong { color:var(--ink); font-weight:600; }
+    code { font-family:ui-monospace, Consolas, monospace; font-size:.92em; color:var(--ink); }
+    footer { margin-top:56px; padding:32px 0 48px; border-top:1px solid var(--line); font-size:14px; color:var(--faint); display:flex; flex-wrap:wrap; gap:8px 16px; }
+    footer a { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="mark" href="../">Hivelane</a>
+      <span class="links"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../refund/">Refunds</a></span>
+    </nav>
+    <main>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated 15 October 2026</p>
+      <p>Hivelane is local-first. Your code, prompts, memory and handoffs stay on your computers. This page lists the few things that do leave them.</p>
+
+      <h2>The Hivelane app</h2>
+      <ul>
+        <li><strong>Licence check.</strong> Hivelane checks your key with <a href="https://dodopayments.com" target="_blank" rel="noopener">Dodo Payments</a> when you activate it and then at most once a day. It sends your licence key and your computer's name, so you can tell your two activations apart. If Dodo can't be reached, Hivelane keeps working for 7 days.</li>
+        <li><strong>Your agents.</strong> The coding agents Hivelane starts talk to their own providers (Anthropic, OpenAI and others) exactly as they do without Hivelane, under your accounts and those providers' privacy policies. Hivelane reads usage from the sign-in your agent CLIs already keep, the same way the CLI reads it.</li>
+        <li><strong>Pull requests.</strong> If you ask Hivelane to open a pull request, it uses your own GitHub sign-in (the <code>gh</code> CLI) to push the branch to your repository.</li>
+        <li><strong>Server sync.</strong> If you turn it on, memory facts go to a server you own, over SSH. Nothing goes through Yuvaan Labs.</li>
+        <li>Hivelane has no analytics or telemetry. It doesn't send me your code, prompts, file names or usage.</li>
+      </ul>
+
+      <h2>The free trial</h2>
+      <p>When you ask for a trial, I store your email address, the trial key and its dates on my server, so I can send the key, send one reminder a day before it ends and keep it to one trial per address. Your email also goes to Dodo Payments, which issues the key. Trial emails are sent through Google Workspace. I don't send newsletters and I don't sell or share your address with anyone else. Email <a href="mailto:support@yuvaanlabs.com">support@yuvaanlabs.com</a> to have it deleted.</p>
+
+      <h2>Buying a licence</h2>
+      <p>Dodo Payments, the merchant of record, handles checkout and keeps your payment details under its own privacy policy. I see your name, email, country and order, which I use only to support your licence.</p>
+
+      <h2>This website</h2>
+      <p>yuvaanlabs.com uses <a href="https://umami.is" target="_blank" rel="noopener">Umami</a> for privacy-friendly visit counts. It sets no cookies and doesn't track you across sites.</p>
+
+      <h2>Contact</h2>
+      <p>Questions or deletion requests: <a href="mailto:support@yuvaanlabs.com">support@yuvaanlabs.com</a></p>
+    </main>
+    <footer>
+      <a href="../">Hivelane</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../terms/">Terms</a>
+      <a href="../refund/">Refunds</a>
+      <a href="https://yuvaanlabs.com/">Yuvaan Labs</a>
+      <a href="mailto:support@yuvaanlabs.com">support@yuvaanlabs.com</a>
+    </footer>
+  </div>
+</body>
+</html>
