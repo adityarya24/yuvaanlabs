@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f5f4f0" />
-  <title>Agent Notch — a fuel gauge for your AI limits</title>
-  <meta name="description" content="A slim notch on the edge of your Windows screen showing live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode. Free and open source. Pro adds click-to-terminal." />
+  <title>Agent Notch — Claude Code, Codex and Cursor limits on Windows</title>
+  <meta name="description" content="Live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode in a slim notch on your Windows screen. Free and open source; Pro adds click-to-terminal." />
   <link rel="canonical" href="https://yuvaanlabs.com/agent-notch/" />
   <meta property="og:title" content="Agent Notch — a fuel gauge for your AI limits" />
   <meta property="og:description" content="Live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode on the edge of your screen. Free and open source." />
@@ -158,6 +158,9 @@
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Agent Notch","url":"https://yuvaanlabs.com/agent-notch/","publisher":{"@type":"Organization","name":"Yuvaan Labs","url":"https://yuvaanlabs.com/"},"description":"A slim notch on the edge of your Windows screen showing live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode.","applicationCategory":"DeveloperApplication","operatingSystem":"Windows","image":"https://yuvaanlabs.com/agent-notch/poster.jpg","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"4.99","priceCurrency":"USD"}],"author":{"@type":"Person","name":"Aditya Arya","url":"https://adityarya.dev/"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does Agent Notch show?", "acceptedAnswer": {"@type": "Answer", "text": "A slim pill on the right edge of your screen with one ring per coding agent. Each ring shows that agent's session and weekly limits, read the same way its own CLI reads them; hover a ring for reset times. A ring turns amber, then red, and you get a notification when an agent crosses your alert threshold. A ring also glows while its agent is busy, so you can see which session is still running."}}, {"@type": "Question", "name": "Which AI coding tools does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Live quota for Claude Code, OpenAI Codex, Gemini / Antigravity, Cursor, Grok CLI and OpenCode Go. Aider, Copilot, Amp, Goose, Cline, Windsurf and other CLIs get an icon and the activity glow only, never a made-up number. Using an agent that isn't covered yet? Request it on GitHub."}}, {"@type": "Question", "name": "What's the difference between Free and Pro?", "acceptedAnswer": {"@type": "Answer", "text": "Free is open source (MIT): live quota rings for 6 agents, alerts at your threshold, the activity glow for any CLI, and custom CLIs and ring order. Pro adds the jump back to work: click a ring to bring that agent's terminal to the front, a \"Waiting on you\" alert when an agent needs input, a \"Done\" alert when it finishes, one-click alert setup for Claude Code, Codex, Gemini and OpenCode, and one key for two computers with all future updates."}}, {"@type": "Question", "name": "Does it send my data anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No Agent Notch account and nothing sent to me. It reads the sign-in your agent CLIs already keep on your machine and asks each provider for your usage the same way the CLI does. The activity glow uses process and file timestamps only; it never reads your prompts or transcripts."}}, {"@type": "Question", "name": "Does it work on Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Windows only for now: it runs on Windows 10 and 11. The macOS port is in progress; the platform groundwork is already in the code."}}, {"@type": "Question", "name": "Will the free version stay free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The notch is MIT-licensed open source. Pro adds new features on top; nothing in Free gets taken away."}}, {"@type": "Question", "name": "Is Pro a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. You pay once and keep Pro, with updates. The first 100 buyers pay $4.99; after that it's $8.99. One license works on two of your computers."}}, {"@type": "Question", "name": "Where do I get Pro after buying?", "acceptedAnswer": {"@type": "Answer", "text": "Dodo Payments emails you a license key right after you pay; check spam or promotions if it hasn't arrived in a few minutes. Download the installer from the download page with your key and run it (Windows 10/11, no admin rights, nothing else to install). Then right-click the tray icon, choose \"Enter license key...\" and paste your key. Steps are in After you buy Pro. Stuck? Write to support@yuvaanlabs.com."}}, {"@type": "Question", "name": "What happens to Pro if I'm offline?", "acceptedAnswer": {"@type": "Answer", "text": "Pro keeps working for 7 days without a connection. The license is checked once a day."}}, {"@type": "Question", "name": "Can I get only Agent Notch alerts, and silence everything else?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The cyan halo and the done glow come from the notch itself, so they show even with Windows notifications off; only the toast and its sound need notifications. To keep just those: Settings, System, Notifications, turn on Do not disturb, then add Agent Notch under \"Set priority notifications\". Everything else stays quiet."}}]}
   </script>
 </head>
 <body>
@@ -334,12 +337,24 @@
       <h2>Questions</h2>
       <div class="faq">
         <details>
+          <summary>What does Agent Notch show?</summary>
+          <p>A slim pill on the right edge of your screen with one ring per coding agent. Each ring shows that agent's session and weekly limits, read the same way its own CLI reads them; hover a ring for reset times. A ring turns amber, then red, and you get a notification when an agent crosses your alert threshold. A ring also glows while its agent is busy, so you can see which session is still running.</p>
+        </details>
+        <details>
+          <summary>Which AI coding tools does it work with?</summary>
+          <p>Live quota for Claude Code, OpenAI Codex, Gemini / Antigravity, Cursor, Grok CLI and OpenCode Go. Aider, Copilot, Amp, Goose, Cline, Windsurf and other CLIs get an icon and the activity glow only, never a made-up number. Using an agent that isn't covered yet? <a href="https://github.com/adityarya24/agent-notch/issues/new?template=provider-request.yml" target="_blank" rel="noopener">Request it on GitHub</a>.</p>
+        </details>
+        <details>
+          <summary>What's the difference between Free and Pro?</summary>
+          <p>Free is open source (MIT): live quota rings for 6 agents, alerts at your threshold, the activity glow for any CLI, and custom CLIs and ring order. Pro adds the jump back to work: click a ring to bring that agent's terminal to the front, a "Waiting on you" alert when an agent needs input, a "Done" alert when it finishes, one-click alert setup for Claude Code, Codex, Gemini and OpenCode, and one key for two computers with all future updates.</p>
+        </details>
+        <details>
           <summary>Does it send my data anywhere?</summary>
           <p>No Agent Notch account and nothing sent to me. It reads the sign-in your agent CLIs already keep on your machine and asks each provider for your usage the same way the CLI does. The activity glow uses process and file timestamps only; it never reads your prompts or transcripts.</p>
         </details>
         <details>
           <summary>Does it work on Mac?</summary>
-          <p>Windows today. The macOS port is in progress; the platform groundwork is already in the code.</p>
+          <p>Windows only for now: it runs on Windows 10 and 11. The macOS port is in progress; the platform groundwork is already in the code.</p>
         </details>
         <details>
           <summary>Will the free version stay free?</summary>
