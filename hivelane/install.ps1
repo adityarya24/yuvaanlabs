@@ -75,7 +75,8 @@ function Install-Hivelane {
         if ($LASTEXITCODE -ne 0) { Write-Host "Setup reported a problem. Run 'hivelane doctor' to see what is missing." }
     }
     Write-Host ''
-    Write-Host 'Done. Next: hivelane activate <your-licence-key>'
+    if ($env:HIVELANE_UPDATING -eq '1') { Write-Host 'Done. Restart your agent sessions to use the new version.' }
+    else { Write-Host 'Done. Next: hivelane activate <your-licence-key>' }
 }
 
 try { Install-Hivelane } catch { Write-Host "hivelane install: $($_.Exception.Message)" -ForegroundColor Red }

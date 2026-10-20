@@ -59,11 +59,25 @@ shim hivelane-codex-hook " -m hivelane.codex_hook"
 shim hivelane-claude-hook " -m hivelane.claude_hook"
 
 say "Installed to $APP_DIR"
+# New terminals must find the commands. ~/.profile alone is read only by
+# login shells, so a GNOME terminal opened after installing said "command
+# not found". Add one marked line to each startup file that exists (and
+# ~/.profile), never twice.
 case ":$PATH:" in
   *":$BIN_DIR:"*) ;;
-  *) say ""
-     say "Add $BIN_DIR to your PATH, then open a new terminal:"
-     say "  echo 'export PATH=\"$BIN_DIR:\$PATH\"' >> ~/.profile" ;;
+  *) PATH_LINE="export PATH=\"$BIN_DIR:\$PATH\"  # added by Hivelane"
+     added=""
+     for rc in "$HOME/.profile" "$HOME/.bashrc" "$HOME/.zshrc"; do
+       [ "$rc" = "$HOME/.profile" ] || [ -f "$rc" ] || continue
+       grep -qs "# added by Hivelane" "$rc" && continue
+       printf '\n%s\n' "$PATH_LINE" >> "$rc" && added="$added ${rc#"$HOME"/}"
+     done
+     say ""
+     if [ -n "$added" ]; then
+       say "Added $BIN_DIR to your PATH in:$added. Open a new terminal to use 'hivelane'."
+     else
+       say "Open a new terminal to use 'hivelane'."
+     fi ;;
 esac
 
 if [ "${HIVELANE_SKIP_SETUP:-}" != "1" ]; then
@@ -72,4 +86,8 @@ if [ "${HIVELANE_SKIP_SETUP:-}" != "1" ]; then
   "$BIN_DIR/hivelane" setup || say "Setup reported a problem. Run 'hivelane doctor' to see what is missing."
 fi
 say ""
-say "Done. Next: hivelane activate <your-licence-key>"
+if [ "${HIVELANE_UPDATING:-}" = "1" ]; then
+  say "Done. Restart your agent sessions to use the new version."
+else
+  say "Done. Next: hivelane activate <your-licence-key>"
+fi

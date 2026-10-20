@@ -45,7 +45,7 @@
     </nav>
     <main>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated 15 October 2026</p>
+      <p class="updated">Last updated 20 October 2026</p>
       <p>Hivelane is local-first. Your code, prompts, memory and handoffs stay on your computers. This page lists the few things that do leave them.</p>
 
       <h2>The Hivelane app</h2>
@@ -53,6 +53,7 @@
         <li><strong>Licence check.</strong> Hivelane checks your key with <a href="https://dodopayments.com" target="_blank" rel="noopener">Dodo Payments</a> when you activate it and then at most once a day. It sends your licence key and your computer's name, so you can tell your two activations apart. If Dodo can't be reached, Hivelane keeps working for 7 days.</li>
         <li><strong>Your agents.</strong> The coding agents Hivelane starts talk to their own providers (Anthropic, OpenAI and others) exactly as they do without Hivelane, under your accounts and those providers' privacy policies. Hivelane reads usage from the sign-in your agent CLIs already keep, the same way the CLI reads it.</li>
         <li><strong>Pull requests.</strong> If you ask Hivelane to open a pull request, it uses your own GitHub sign-in (the <code>gh</code> CLI) to push the branch to your repository.</li>
+        <li><strong>Update check.</strong> Once a day Hivelane reads one public file from yuvaanlabs.com that names the latest version, so <code>hivelane doctor</code> and the dashboard can tell you when a new one is out. The request carries only the Hivelane version you run (and, like any web request, your IP address). Set <code>HIVELANE_NO_UPDATE_CHECK=1</code> to turn it off. Nothing updates by itself.</li>
         <li><strong>Server sync.</strong> If you turn it on, memory facts go to a server you own, over SSH. Nothing goes through Yuvaan Labs.</li>
         <li>Hivelane has no analytics or telemetry. It doesn't send me your code, prompts, file names or usage.</li>
       </ul>
