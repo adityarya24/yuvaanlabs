@@ -109,6 +109,8 @@
     .plan.pro .price small { color: #a9a59b; }
     .plan .note { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
     .plan.pro .note { color: #a9a59b; }
+    .plan .new { display:inline-block; white-space:nowrap; align-self:flex-start; margin-top:2px; font-size:11px; font-weight:600; color:#14130f; background:var(--amber); border-radius:999px; padding:0 7px; margin-left:4px; vertical-align:1px; }
+    .plan .note a { color: var(--amber); }
     .plan ul { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; font-size: 15px; }
     .plan li { display: flex; gap: 10px; align-items: baseline; }
     .plan li::before { content: "✓"; color: var(--green); font-weight: 700; flex: none; }
@@ -299,9 +301,13 @@
             <li>Click a ring, jump to that agent's terminal</li>
             <li>"Waiting on you" alert when an agent needs input</li>
             <li>"Done" alert when an agent finishes its task</li>
-            <li>One-click alert setup for Claude Code, Codex, Gemini and OpenCode</li>
+            <li>Allow or deny Claude Code prompts, and answer its questions, from the notch <span class="new">New in 1.6</span></li>
+            <li>One-click alert setup for Claude Code, Codex, Gemini, Grok and OpenCode</li>
+            <li>Works with Hivelane: dispatch glow and handoff banner</li>
+            <li>One installer that updates itself</li>
             <li>One key, two computers, all future updates</li>
           </ul>
+          <p class="note">Current version <!-- PRO-VERSION -->1.6.0<!-- /PRO-VERSION --> · <a href="changelog/">What's new</a></p>
           <a class="btn" href="https://checkout.dodopayments.com/buy/pdt_0NouPkIrR551phLvO46te?quantity=1" rel="noopener" data-umami-event="plan-pro-buy">Get Pro for $4.99</a>
           <p class="buynote">License key by email; download the Windows installer with it.<br><a href="https://www.virustotal.com/gui/file/6c9d716e51f5515c500dc0ad7d895c781512ff6209ad6d027e9f495397256dac" target="_blank" rel="noopener">VirusTotal: 0/65 clean</a> · <a href="#after-buy">install steps</a></p>
         </div>

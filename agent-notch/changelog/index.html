@@ -45,175 +45,323 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: 1.4.2, 27 September 2026</p>
+      <p class="updated">Latest: Pro 1.6.0, 22 October 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
-
+      <!-- CHANGELOG-START -->
+      <h2>1.6.0</h2>
+      <p class="updated">22 October 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>Answer Claude Code from the notch. When Claude asks permission to run a command or edit a file, the notch shows what it wants to do with Allow and Deny buttons. When Claude asks you a question, its options appear as buttons. The prompt in your terminal keeps working too: whichever you answer first wins. Turn it off in Settings → Pro → Answer Claude prompts here. If the notch is closed, nothing changes.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Settings: the agent list is no longer squeezed to a single row. Pro and preference options now scroll with the list, and only Apply &amp; Save stays pinned.</li>
+        <li>Installing hooks no longer creates a ~/.codex folder on machines without Codex.</li>
+        <li>The Claude prompt card stays readable over bright windows behind it.</li>
+        <li>Tighter Pro licence checks.</li>
+      </ul>
+      <h2>1.5.9</h2>
+      <p class="updated">21 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>The dispatch glow and handoff banner work again with Hivelane (the new name of MindSync). Hivelane keeps its jobs in a new folder, and the notch was still looking in the old one, so a running Hivelane job no longer lit up its agent's ring. Older MindSync installs keep working.</li>
+        <li>No more burst of old "waiting on you" toasts. When the notch's signal log was trimmed, it could replay hundreds of old alerts at once; it now shows only new ones.</li>
+      </ul>
+      <h2>1.5.8</h2>
+      <p class="updated">13 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Quick replies that end in a question no longer pop a notification. Codex often ends a short answer with a friendly question ("How about you?"), and the notch used to treat that as Codex waiting on you, with a toast and a sound almost every message. When a reply comes back within a minute, you are usually right there reading it, so the ring just glows. A question after a longer job still notifies you, and approval requests always do.</li>
+        <li>The Get Pro link opens the Agent Notch page at its new home, yuvaanlabs.com.</li>
+      </ul>
+      <h2>1.5.7</h2>
+      <p class="updated">8 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Codex: Agent Notch hooks now stay within Codex's time limits (5 seconds, and 3 seconds when a session ends), so Codex no longer warns about them.</li>
+        <li>Codex asks you once to trust new or changed hooks. Agent Notch now shows a one-time notice when that will happen: press t in Codex to trust them, or review them in /hooks.</li>
+        <li>Your agent config backups are kept safe: reinstalling hooks that are already up to date no longer touches your config files, so the backup still holds your original settings.</li>
+      </ul>
+      <h2>1.5.6</h2>
+      <p class="updated">7 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Clicking a ring now brings the agent's terminal forward when Windows Terminal is your default terminal. A PowerShell or Command Prompt opened from the Start menu runs inside Windows Terminal without being its child, so the click used to do nothing. The notch now finds the agent's tab in Windows Terminal and switches to it.</li>
+        <li>Codex questions asked in the middle of a turn now light the ring and notify you. Codex asks them with a separate tool that the hooks did not listen to, so the notch stayed quiet while Codex waited.</li>
+        <li>The tray shows the Agent Notch icon instead of a plain square.</li>
+        <li>The quota card no longer shows a small black diamond on its edge. The free version dropped it on 1 October; Pro had kept it.</li>
+      </ul>
+      <h2>1.5.5</h2>
+      <p class="updated">4 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Grok showed an extra "done" glow right after you quit it. Grok reports a finished turn again on exit; that one is now ignored.</li>
+      </ul>
+      <h3>Changed</h3>
+      <ul>
+        <li>Toasts name the project folder ("Agent Notch · my-app"), so two sessions of the same agent can be told apart.</li>
+      </ul>
+      <h2>1.5.4</h2>
+      <p class="updated">4 October 2026 · Pro</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>Quick replies no longer pop a "finished" toast. When an agent's turn takes under a minute you were most likely watching it, so the ring just glows. Longer turns still notify you, and questions and approvals always do, with sound.</li>
+        <li>Claude Code's "waiting for your input" reminder, sent a minute after every finished reply, no longer counts as waiting on you. In a normal chat it beeped after every answer. Questions at the end of a reply are still caught.</li>
+      </ul>
+      <h2>1.5.3</h2>
+      <p class="updated">4 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>No sound on "waiting on you" when Claude Code asked a question. Claude reports one question as up to three signals within a second; each one replaced the toast, and replacing a toast cut its sound off. The question now stays as one toast with its own text, and a toast that does get replaced passes its sound on.</li>
+        <li>After updating from an older version, agent hooks stayed at the old, smaller set, so some agents never said they were waiting. If you turned the hooks on before, the app now brings them up to date when it starts.</li>
+      </ul>
+      <h2>1.5.2</h2>
+      <p class="updated">4 October 2026 · Pro</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>When an agent's sign-in expires (it happens when the agent stays closed for a few hours), its ring keeps showing the last reading, in grey with a "~", instead of switching to "login". Hover the ring to see how old the reading is and what to do: open the agent once and the live number comes back. If there is no reading from the last 24 hours, the ring still asks you to sign in.</li>
+      </ul>
+      <h2>1.5.1</h2>
+      <p class="updated">4 October 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Claude, Grok and Cursor rings showed "login" in the installed app even when you were signed in. The helper scripts that read your saved logins could not be opened from inside the app package. Codex was never affected.</li>
+        <li>Cursor no longer needs Python installed to read its login. If it still cannot be read, the ring now says so instead of "login".</li>
+        <li>The Pro section no longer shows "Get Pro" once your licence is active.</li>
+      </ul>
+      <h3>Added</h3>
+      <ul>
+        <li>Settings now shows the app version at the bottom.</li>
+      </ul>
+      <h2>1.5.0</h2>
+      <p class="updated">3 October 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>Agent Notch Pro now installs from a single .exe, no Node.js needed, and updates itself. Updates download in the background; restart when you are ready to install.</li>
+        <li>Existing agent waiting hooks move to the installed app automatically, while your licence and settings stay in place.</li>
+        <li>"Waiting on you" now fires when an agent asks you a question, not only for permission prompts. Claude Code (AskUserQuestion tool, or a reply that ends with a question), Gemini CLI (ask_user tool or a reply ending in a question), Codex (reply ending in a question) and OpenCode (when it reports questions). Polite closers such as "anything else?" or "want me to add tests?" still count as plain "done". Works in Hinglish too ("kya main aage badhun?").</li>
+        <li>Claude Code permission prompts are signalled instantly (PermissionRequest) instead of after a few seconds, and closing a session clears its halo.</li>
+        <li>Codex now uses Codex hooks (prompt, approval, done, session end). The older notify setting is still written for older Codex versions.</li>
+        <li>Grok Build hooks (prompt, permission, done, session end), and Grok sessions that run Claude-style hooks are no longer shown on the Claude ring.</li>
+        <li>Several sessions of one agent are tracked separately. One session finishing never clears another session's "waiting", and the notification says "3 sessions waiting" when more than one needs you.</li>
+        <li>When several agents wait at the same moment, the alert sound plays at most once every 10 seconds.</li>
+      </ul>
+      <h3>Changed</h3>
+      <ul>
+        <li>The cyan "waiting on you" halo now wins over the green working glow, so a waiting agent is never buried while it also looks busy, and "done" fades by itself after 8 seconds (first shipped in 1.4.5).</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Gemini CLI, Codex and Grok hooks on Windows start with a quoted path, which PowerShell cannot run. They are now written with the <code>&amp;</code> call form, and older entries are rewritten on startup. Claude Code hooks use the shell-free command + args form.</li>
+      </ul>
+      <h2>1.4.5</h2>
+      <p class="updated">3 October 2026 · Pro</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>"Done" no longer sticks. The cyan halo for a finished turn fades by itself after 8 seconds. Only "waiting on you" stays until you reply or click the ring.</li>
+        <li>When an agent is waiting on you while it also looks busy, the ring now shows only the cyan halo (a little thicker and brighter) instead of letting the green working glow bury it.</li>
+      </ul>
+      <h2>1.4.4</h2>
+      <p class="updated">3 October 2026 · Pro</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>The "waiting on you" notification now stays on screen until you dismiss it, and closes by itself once you reply or click the ring. It plays the Windows notification sound (turn it off in Settings with "Waiting alert sound"). "Done" notifications stay quiet and short.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Agent hooks installed from Settings could make Claude Code wait 30 seconds on every prompt (and hang when a run finished). They now run with Node, finish within a 10 second timeout at most, and existing installs repair themselves the next time Agent Notch starts.</li>
+        <li>The cyan "waiting on you" (and "done") halo could vanish within seconds because the agent still looked busy. It now stays until you reply, click the ring, or it expires.</li>
+      </ul>
+      <h2>1.4.3</h2>
+      <p class="updated">3 October 2026</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>"Waiting on you" now shows a neon cyan halo around the ring, so it can no longer be mistaken for the amber quota warning. The ring itself keeps showing your quota (green, amber or red) while it waits, and the collapsed-rail marker turns cyan too.</li>
+      </ul>
       <h2>1.4.2</h2>
       <p class="updated">27 September 2026</p>
       <h3>Added</h3>
       <ul>
-        <li>A refresh button next to Settings at the foot of the rail. It re-reads every provider on demand, the same as "Refresh Quotas Now" in the tray. During a rate-limit cooldown it shows the last known reading instead of forcing another request.</li>
+        <li>A refresh button next to Settings at the foot of the rail re-reads every provider on demand, the same as the tray's "Refresh Quotas Now". The icon spins while the read is in flight and further clicks wait for it. A rate-limit cooldown still wins: during one, the button returns the last known reading instead of forcing another request.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li><code>npm run pack:check</code> understands the newer npm <code>pack --json</code> shape (an object keyed by package name, not an array). It failed on newer npm locally while CI's older npm kept it green.</li>
       </ul>
       <h2>1.4.1</h2>
       <p class="updated">18 September 2026</p>
       <h3>Changed</h3>
       <ul>
-        <li>Suggestions for new tools now spell out the opt-in. One click gives you the icon and glow. Usage % stays a dash until a JSON quota command exists.</li>
+        <li>Catalog suggestions spell out the opt-in: one click is icon + glow; usage % stays a dash until a JSON quota command exists. Custom hover cards say the same.</li>
       </ul>
       <h2>1.4.0</h2>
       <p class="updated">18 September 2026</p>
       <h3>Added</h3>
       <ul>
-        <li>Discovery now also recognizes Cline, Continue, Roo Code, Factory Droid, Hermes, Windsurf, Trae, Zed and Kiro. Settings and <code>notch provider discover</code> suggest them. Nothing is added to the notch until you opt in, and usage numbers stay unknown unless you attach a JSON command or a manual snapshot.</li>
-        <li><code>notch quota</code> (also <code>notch --json</code>) prints the last quota reading as JSON. It reads the cache only. Tokens and raw provider data are never printed.</li>
+        <li>Discovery catalog now also recognizes Cline, Continue, Roo Code, Factory Droid, Hermes, Windsurf, Trae, Zed, and Kiro. Still detection-only — Settings / <code>notch provider discover</code> suggest them; nothing is added to the HUD until you opt in. Desktop apps use cataloged Windows install paths the same way ZCode does. Opt-in copies the catalog icon and native process (glow). Quota stays unknown unless you attach a JSON command or a manual snapshot — Notch does not invent usage percentages for tools without a grounded reader.</li>
+        <li><code>notch quota</code> (alias <code>notch --json</code>) prints the last HUD quota snapshot as JSON for local orchestrators. Cache-only: no Electron spawn, no live scrape, no localhost server. Missing cache exits 1 with <code>"ok": false</code>. Display fields only — tokens and raw provider payloads stay out of stdout.</li>
       </ul>
       <h3>Changed</h3>
       <ul>
-        <li>Smoother motion: collapse and reveal is one spring, rings fade with the slide, quota numbers tick with the arc, and a handoff draws a spark down the rail. Reduce motion turns the new animations off.</li>
-        <li>The open rail is a slimmer half-pill. Settings no longer has a divider.</li>
+        <li>HUD motion polish from the approved preview: collapse/reveal is one 520ms spring, rings fade with the slide, the chevron rotates, quota numbers tick with the arc, a live critical ring breathes faster (still opacity-only), hover/toast cards use the same glass material, and a handoff draws a spark down the rail. Quota-arc fill stays on the 420ms curve. Reduce-motion zeroes the new durations and hides the spark.</li>
+        <li>Open rail is a 70px half-pill (radius 35) instead of a 92px rounded box. Inner padding stays 12px so the live glow does not clip; the chevron overlays rather than adding a second column. Settings loses its divider. Collapse offset is 48px so the tucked remnant stays ~22px.</li>
       </ul>
       <h2>1.3.8</h2>
       <p class="updated">2 September 2026</p>
-      <h3>Added</h3>
+      <h3>Fixed</h3>
       <ul>
-        <li>Agent Notch is on npm. Install with <code>npm i -g agent-notch</code>, or run it once with <code>npx agent-notch</code>.</li>
+        <li>Choosing the Antigravity icon for a custom agent no longer silently saves the spark icon instead. The settings picker gained the option in 1.3.3 but <code>config.js</code> kept its own allowlist, and an icon missing from it is rewritten rather than rejected.</li>
+        <li>The quota toast now sits beside the tucked rail instead of a tuck-width away from it. Collapsing moves the rail with a CSS transform, so layout still placed the toast against the rail's untucked box, leaving a 64px gap where 8px was intended.</li>
+        <li>Opening and closing Settings no longer shifts the HUD. Each overlay mode declared its own window footprint, so switching modes animated the native window bounds -- and resizing a transparent frameless window visibly moves its contents. All modes now share one footprint, so the transition has nothing to animate.</li>
+        <li>The live-agent glow is no longer sheared into a rectangle. The ring list is a vertical scroller, and a scroll container clips its contents to the scrollport -- with the rings flush against that edge the glow was cut off flat on both sides. The list now carries 12px of padding on every side, clearing both the halo's box-shadow and the arc's drop-shadow bloom -- vertically too, so the top and bottom rings no longer bleed into the rail's border. The list's max height grew by the same amount, so four rings still fit rather than the icons shrinking. The collapse offset moved 56px -&gt; 68px to keep the tucked strip its original width; the toast reads the same constant and follows automatically.</li>
+        <li>The chevron gutter is narrower: 28px (4 + 16 + 8) down to 22px.</li>
+        <li>Two clipping bugs found on the way there, both real: the ring's SVG viewport cut off the arc's drop-shadow, and the pulsing halo relied on its parent's rounded overflow clip, which a composited child ignores. Both now clip correctly.</li>
+        <li>The quota toast, the settings panel and the hover card now animate in. The card carried <code>animate-in fade-in zoom-in-95</code>, which emitted no CSS at all -- those utilities need <code>tailwindcss-animate</code>, which is not installed -- so all three simply appeared. They now share one keyframe that slides in from the screen edge.</li>
       </ul>
       <h3>Changed</h3>
       <ul>
-        <li>The handoff notice is now a toast instead of a line inside the rail, so the rail no longer grows and shrinks. It uses the destination agent's quota color.</li>
-        <li>Animations share one set of timings, so a ring's fill, color and glow settle together. Reduce motion turns them all off.</li>
+        <li>The handoff notification is a toast instead of a line inside the rail. It used to render in the pill, which made the pill grow and shrink mid-glance and hid the notice entirely while tucked. As a toast it reads the same collapsed or expanded and never resizes the pill. It carries the destination's own quota colour, so a handoff into an agent that is itself near its limit reads red. The ring flash on the source and destination is unchanged.</li>
+        <li>Motion is driven by three tokens (<code>--notch-fast</code> 160ms, <code>--notch-base</code> 260ms, <code>--notch-slow</code> 420ms) on one easing curve, replacing eight ad-hoc durations across four easings. A ring's fill, colour and glow settle together instead of at 600ms, 400ms and 300ms. Reduce motion zeroes the tokens in a single rule, so a new animation cannot forget to honour the setting.</li>
       </ul>
-      <h3>Fixed</h3>
+      <h3>Added</h3>
       <ul>
-        <li>Choosing the Antigravity icon for a custom agent no longer saves the spark icon instead.</li>
-        <li>The quota toast sits right beside the tucked rail instead of far from it.</li>
-        <li>Opening and closing Settings no longer shifts the notch.</li>
-        <li>The live-agent glow is no longer cut off flat at the edges, and the top and bottom rings no longer bleed into the rail border.</li>
-        <li>The quota toast, settings panel and hover card now animate in.</li>
-        <li>The collapse chevron gutter is narrower.</li>
+        <li>Published to npm as [<code>agent-notch</code>](https://www.npmjs.com/package/agent-notch). Install is now <code>npm i -g agent-notch</code> rather than pulling the GitHub repo, and <code>npx agent-notch</code> runs it once without installing.</li>
+        <li>A publish workflow: pushing a <code>vX.Y.Z</code> tag runs the full check suite and publishes that version to npm with provenance. It refuses to run if the tag and <code>package.json</code> disagree, since an npm version cannot be reused.</li>
+        <li>Poll cadence can be overridden for tests and captures with <code>NOTCH_POLL_MS</code> and <code>NOTCH_READER_POLL_MS</code>. Unset, the 60s cycle is unchanged.</li>
+        <li>README media: the handoff, full-tour, live-glow and tuck-alert clips, plus one image of the three rail states. Animated WebP rather than GIF -- more than twice the resolution at a third of the weight; the two GIFs it replaces were 6.5 MB.</li>
       </ul>
       <h2>1.3.7</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The hover card is no longer clipped at the edge of the window.</li>
+        <li>The hover card is no longer clipped against the window edge. The 280px card, its 8px margin and the rail did not fit in a 360px window; widening the chevron gutter in 1.3.6 pushed the shortfall from 6px to 12px and made it obvious. The dock is now 380px, leaving the card 288px to sit in.</li>
       </ul>
       <h2>1.3.6</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The working-agent glow no longer washes over the collapse chevron.</li>
+        <li>The working-agent glow no longer washes over the collapse chevron. The chevron sat 6px from the ring's edge while the glow reaches about 8px, so an active ring tinted it. The gutter is now 12px, and the tucked rail's offset moves with it so the collapsed strip stays exactly as wide as before.</li>
       </ul>
       <h2>1.3.5</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The working-agent pulse is visible again, and the icon itself glows with it.</li>
+        <li>The working-agent pulse is visible again, and now the icon itself glows with it. Containing the glow in 1.3.4 left only a faint outer ring: the halo's inner glow was drawn under the opaque icon hub, so it never showed. The pulse now lives inside the hub, where it can be bright without reaching the next row.</li>
       </ul>
       <h2>1.3.4</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The working-agent pulse no longer lights up neighboring icons or washes out its own percentage label.</li>
+        <li>The working-agent pulse no longer bleeds onto neighbouring icons. It was a filled, blurred disc that grew to <code>scale(1.22)</code> -- roughly 85px of glow against a 65px gap between rows -- so an agent at work lit up the icons above and below it and washed out its own percentage label. It is now a halo that hugs the ring, and the pulse animates opacity only.</li>
       </ul>
       <h2>1.3.3</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The Grok card now uses Grok's own mark instead of the X logo.</li>
+        <li>The Grok card carried the X logo rather than Grok's own mark. It now uses the Grok mark, traced from the official artwork into a monochrome path that follows <code>currentColor</code> like every other icon.</li>
       </ul>
       <h2>1.3.2</h2>
       <p class="updated">2 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The Claude card no longer goes grey with "refresh failed" during normal use. When Anthropic rate-limits the request, Notch now keeps showing the last good reading for up to 15 minutes instead of blanking.</li>
-        <li>The Antigravity card now uses the Antigravity mark instead of the Gemini spark.</li>
+        <li>The Claude card no longer greys out with "refresh failed" during normal use. The Anthropic usage endpoint rate-limits the shared OAuth token, and a 429 was being reported as an outage; the card then fell back to its last reading and went stale. A 429 is now treated as a throttle rather than a failure: it gets a cooldown that a forced refresh cannot punch through, it no longer escalates the failure backoff, and the last good reading keeps showing (bounded to 15 minutes) instead of blanking.</li>
+        <li>The Antigravity card carried the Gemini spark, which belongs to a different product. It now uses the Antigravity mark, traced from the icon the installed app ships. <code>gemini</code> remains a valid icon id with its original artwork for saved custom agents.</li>
+      </ul>
+      <h3>Added</h3>
+      <ul>
+        <li><code>NOTCH_DEBUG_PROVIDER=claude,grok</code> (or <code>all</code>) logs what each reader returned next to what the UI was shown. The persisted cache cannot distinguish a held-over reading from a fresh one -- both record <code>known</code>. Off by default.</li>
       </ul>
       <h2>1.3.1</h2>
       <p class="updated">1 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>The collapse chevron has its own space and no longer overlaps provider icons.</li>
+        <li>The collapse chevron now has its own gutter and no longer overlaps provider icons.</li>
       </ul>
       <h2>1.3.0</h2>
       <p class="updated">1 September 2026</p>
       <h3>Added</h3>
       <ul>
-        <li>Add your own tools with <code>notch provider add</code>, plus <code>list</code>, <code>remove</code> and detection-only <code>discover</code> commands.</li>
-        <li>Discovery for Aider, GitHub Copilot, Amp, Goose, Crush, Qwen and ZCode, in Settings and the CLI.</li>
+        <li>Provider self-registration through <code>notch provider add</code> / <code>register</code>, plus <code>list</code>, <code>remove</code>, and detection-only <code>discover</code> commands backed by validated atomic config writes.</li>
+        <li>Shared discovery for Aider, GitHub Copilot, Amp, Goose, Crush, Qwen, and ZCode across Settings and the CLI; PATH-based tools use executable lookup, ZCode can also be found from its Windows install path, and <code>--icon auto</code> uses catalog mappings with a generic Spark fallback.</li>
       </ul>
       <h3>Changed</h3>
       <ul>
-        <li>The tucked rail is a quota-colored jewel instead of a plain chevron.</li>
-        <li>When the notch is visible, quota alerts show as a toast inside the rail. Windows toasts are used only when the window is hidden.</li>
-        <li>Codex uses the official OpenAI logomark.</li>
-        <li>Hover cards wait a beat before swapping, dragging lifts the ring, and the rail no longer shifts on hover.</li>
+        <li>Tucked rail is a quota-colored jewel remnant instead of a dead chevron.</li>
+        <li>Quota-cross alerts while the HUD is visible are an in-rail glass toast; Windows toasts remain only when the window is hidden.</li>
+        <li>Codex uses the official OpenAI logomark at the same size as the other rings.</li>
+        <li>Hover cards wait a beat before swapping, drag lifts the ring, and the rail no longer shifts padding on hover.</li>
       </ul>
       <h3>Fixed</h3>
       <ul>
-        <li>The tucked jewel follows each ring's own alert threshold instead of assuming 80%.</li>
+        <li>The tucked jewel now follows each ring's configured critical threshold instead of assuming the default 80% threshold.</li>
       </ul>
       <h2>1.2.1</h2>
       <p class="updated">1 September 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>Open but idle Claude, Gemini, Grok, Cursor and OpenCode sessions no longer keep the activity ring glowing.</li>
+        <li>Open but idle Claude, Gemini, Grok, Cursor, and OpenCode sessions no longer keep the activity ring glowing; session-backed providers now require a recent trustworthy work signal, while CPU fallback providers require sustained activity.</li>
       </ul>
       <h2>1.2.0</h2>
       <p class="updated">1 September 2026</p>
       <h3>Added</h3>
       <ul>
-        <li>A desktop notification when a quota crosses your alert threshold while the notch is tucked or hidden. Click it to reveal the notch. Turn it off with <strong>Notify when tucked</strong> in Settings.</li>
-        <li>The activity glow works for every supported CLI at once, including custom ones.</li>
+        <li>Desktop toast when a quota crosses the critical threshold while the rail is tucked or hidden. Click the toast to reveal the HUD. Settings: <strong>Notify when tucked</strong>.</li>
+        <li>Direct activity glow for every active supported local CLI, including simultaneous agents and custom providers mapped to an exact native executable.</li>
       </ul>
       <h3>Changed</h3>
       <ul>
-        <li>The last good quota reading now survives restarts for up to 24 hours and is marked stale until refreshed.</li>
-        <li>Custom tools keep activity detection separate from an optional JSON quota command.</li>
+        <li>Last-known successful quota readings now survive restarts for up to 24 hours, remain visibly stale until refreshed, and are never replaced by unknown-only data.</li>
+        <li>Custom providers keep activity-process detection separate from optional JSON quota commands, with legacy config migration and reliable quoted Windows commands.</li>
       </ul>
       <h3>Fixed</h3>
       <ul>
-        <li>Grok now tells a signed-in session with no quota apart from an expired sign-in.</li>
-        <li>Codex personal 5-hour and weekly windows, and Team weekly-only plans, are labeled correctly.</li>
+        <li>Grok now distinguishes a valid signed-in session with unavailable quota from expired authentication and does not treat on-demand spend as included quota.</li>
+        <li>Codex quota windows are classified by their provider-reported duration, so personal 5-hour and weekly windows and Team weekly-only responses are labeled correctly regardless of response order.</li>
       </ul>
-      <h3>Privacy</h3>
+      <h3>Security</h3>
       <ul>
-        <li>Saved quota readings keep display fields only. Activity detection reads process and session metadata, never prompts or transcripts.</li>
+        <li>Persisted quota snapshots whitelist display-only fields; direct activity detection reads process and session metadata without reading prompts or transcripts.</li>
       </ul>
       <h2>1.1.0</h2>
       <p class="updated">31 August 2026</p>
       <h3>Added</h3>
       <ul>
-        <li>Drag to reorder rings. The first four stay in view and extra rings scroll underneath.</li>
-        <li>Healthy (green) percentages use the same color as the ring.</li>
+        <li>Drag-to-reorder rings. The first four stay in view; extra rings scroll underneath.</li>
+        <li>Healthy (green) percentages now use the same quota color as the ring.</li>
       </ul>
       <h3>Changed</h3>
       <ul>
-        <li>The collapse control is a chevron in the rail: right to tuck, left to pull back out.</li>
-        <li>The activity glow uses the working ring's own color and stays inside the pill. The green pip is gone.</li>
-        <li>Content in the overlay is vertically centered.</li>
+        <li>Collapse control is an in-rail chevron: right to tuck, left to pull. The tucked pill keeps the open rail’s height.</li>
+        <li>Active-agent glow uses the working ring’s own color, stays inside the pill, and no longer uses a green pip.</li>
+        <li>Overlay content is vertically centered in the work area.</li>
+        <li>README hero is a set of stills instead of the demo video.</li>
       </ul>
       <h2>1.0.1</h2>
       <p class="updated">31 August 2026</p>
       <h3>Fixed</h3>
       <ul>
-        <li>Settings and runtime files moved out of the install folder, with your old config carried over.</li>
-        <li><code>notch status</code>, stop and restart work reliably, including after upgrades.</li>
-        <li>Disabled providers are no longer queried.</li>
-        <li>Expired Claude sign-ins are left alone. Notch asks Claude Code to refresh them.</li>
-        <li>Stale quota values are clearly marked and expire after five minutes.</li>
-        <li>Your alert threshold and each provider's quota-window labels are now applied.</li>
-      </ul>
-      <h3>Added</h3>
-      <ul>
-        <li>A slim curved grip that tucks the notch to the screen edge.</li>
+        <li>Moved config and runtime state out of the installed package directory, with non-destructive migration of legacy config.</li>
+        <li>Made <code>notch status</code>, stop, restart, and single-instance PID ownership reliable across stale files and upgrades.</li>
+        <li>Stopped disabled providers from being queried and added single-flight polling, caching, and bounded retry backoff.</li>
+        <li>Expired Claude credentials are now read-only; Notch asks Claude Code to refresh the sign-in.</li>
+        <li>Stale quota values are clearly marked and expire after five minutes instead of persisting indefinitely.</li>
+        <li>Applied the configurable alert threshold and provider-specific quota-window labels.</li>
+        <li>Added a persistent edge-tuck interaction with a slim curved grip, and optically centered the OpenAI ring icon.</li>
+        <li>Included the production <code>dist/</code> bundle in npm packages.</li>
       </ul>
       <h3>Security</h3>
       <ul>
-        <li>Moved to Electron 44 with a sandboxed window, blocked navigation and permissions, and a strict content security policy.</li>
-        <li>No more Google Fonts requests at runtime.</li>
-        <li>Custom quota commands now come with a warning, since they run on your machine.</li>
+        <li>Upgraded to Electron 44 and enabled renderer sandboxing, navigation denial, permission denial, and a restrictive Content Security Policy.</li>
+        <li>Removed runtime Google Fonts requests and documented the exact credential/network boundary.</li>
+        <li>Added config sanitization and a warning for trusted local custom quota commands.</li>
       </ul>
+      <h3>Quality</h3>
+      <ul>
+        <li>Added deterministic config, polling, stale-state, and runtime-state tests.</li>
+        <li>Added Windows and Linux CI gates for tests, smoke logic, build, package contents, and high-severity dependency audit.</li>
+      </ul>
+      <!-- CHANGELOG-END -->
     </main>
     <footer>
       <a href="../">Agent Notch</a>
