@@ -1,0 +1,19 @@
+# Yuvaan Labs
+
+> Yuvaan Labs is an independent software lab in India run by Aditya Arya. It builds developer tools for people who run several AI coding agents (Agent Notch, Hivelane) and VedPatrika, a Vedic astrology site. It also builds AI agents for clients.
+
+Contact: support@yuvaanlabs.com. Products are sold as one-time payments, not subscriptions.
+
+## Products
+- [Agent Notch](https://yuvaanlabs.com/agent-notch/): live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode in a slim notch on the Windows screen. Windows 10 and 11. Free and open source (MIT); Pro is $4.99 one-time for the first 100 buyers, then $8.99, and adds click-to-terminal.
+- [Agent Notch install guide for agents](https://yuvaanlabs.com/agent-notch/install.md): steps a coding agent can follow to install Agent Notch.
+- [Agent Notch changelog](https://yuvaanlabs.com/agent-notch/changelog/)
+- [Hivelane](https://yuvaanlabs.com/hivelane/): routes tasks to Claude Code, Codex or Cursor, runs workers in their own git worktrees, hands work on when a seat runs low and keeps one shared memory. Local-first. Windows and Linux; macOS in private beta. 7-day trial, no card; Founders Edition is $29 one-time for the first 100 buyers, then $49.
+- [VedPatrika](https://vedpatrika.in/): Vedic astrology in Hindi and English: free kundli tools and a paid Janma Patrika report.
+
+## Legal
+- [Agent Notch privacy](https://yuvaanlabs.com/agent-notch/privacy/), [terms](https://yuvaanlabs.com/agent-notch/terms/), [refund](https://yuvaanlabs.com/agent-notch/refund/)
+- [Hivelane privacy](https://yuvaanlabs.com/hivelane/privacy/), [terms](https://yuvaanlabs.com/hivelane/terms/), [refund](https://yuvaanlabs.com/hivelane/refund/)
+
+## Machine-readable
+- [Sitemap](https://yuvaanlabs.com/sitemap.xml)
