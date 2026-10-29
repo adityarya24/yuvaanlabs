@@ -46,9 +46,26 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.6.1, 24 October 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.7.0, 29 October 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.7.0</h2>
+      <p class="updated">29 October 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>See what your agent is doing. When Claude Code works from a task list, the notch shows the current step, how many are done (for example 2/5) and how long the turn has run. Hover a ring to see the whole list.</li>
+        <li>"Your turn". When Claude ends a turn with a question for you, the notch shows it in amber until you answer or click it. A normal finish shows the first line of the reply for a few seconds.</li>
+        <li>A red line when a turn fails, for example "Rate limit reached" or "Network problem", so a stopped agent doesn't look like a finished one.</li>
+        <li>Pause approvals. A new switch in Settings (and in the tray menu) lets the terminal handle Claude's prompts for a while, without turning off "Answer Claude prompts here".</li>
+        <li>Today at a glance. Hover a ring to see that agent's turns, failed turns and working time for today.</li>
+        <li>A new hooks panel in Settings. Install, update or remove alerts for each agent on its own, and see exactly what will change in its config file before you confirm. A backup is kept.</li>
+        <li>Any other CLI agent: Settings gives you a ready command to send "waiting" and "done" to the notch from your own scripts or hooks.</li>
+      </ul>
+      <h3>Changed</h3>
+      <ul>
+        <li>The notch no longer rewrites your agents' hook settings by itself after an update. When newer hooks are available, it tells you once and you press Update in Settings. To get task steps and the failure line, press Update for Claude Code.</li>
+        <li>Security updates to the app's Electron base.</li>
+      </ul>
       <h2>1.6.1</h2>
       <p class="updated">24 October 2026 · Pro</p>
       <h3>Fixed</h3>
