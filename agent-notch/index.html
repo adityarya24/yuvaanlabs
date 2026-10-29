@@ -187,7 +187,7 @@
         <h1>Agent <em>Notch</em></h1>
         <p class="lede"><strong style="color:var(--ink);font-weight:600">A fuel gauge for your AI limits.</strong> Every agent's quota, live, on the edge of your screen, so you see the wall coming.</p>
         <div class="cta">
-          <a class="btn btn-dark" href="#install" data-umami-event="hero-install">Install free</a>
+          <a class="btn btn-dark" href="#pricing" data-umami-event="hero-install">Install free</a>
           <a class="btn btn-line" href="#pricing" data-umami-event="hero-pro">See Pro →</a>
         </div>
         <p class="meta">Windows · open source (MIT) · no account · macOS in progress · <a href="changelog/">What's new</a></p>
@@ -197,23 +197,6 @@
       </div>
     </header>
   </div>
-
-  <section id="install">
-    <div class="wrap narrow">
-      <h2>Install in <em>one line</em></h2>
-      <p class="sub">Paste this into PowerShell. No admin rights. It installs the notch and starts it.</p>
-      <div class="install">
-        <code><span class="prompt">PS&gt;</span><span id="cmd">irm https://raw.githubusercontent.com/adityarya24/agent-notch/main/install.ps1 | iex</span></code>
-        <button class="copy" type="button" data-copy="cmd" data-umami-event="copy-install">Copy</button>
-      </div>
-      <p class="sub" style="margin-top:22px">Or let your AI agent do it. Paste this into Claude Code, Codex, Gemini or Grok. It works for Free and Pro.</p>
-      <div class="install">
-        <code><span id="cmd-agent">Install Agent Notch by following https://yuvaanlabs.com/agent-notch/install.md</span></code>
-        <button class="copy" type="button" data-copy="cmd-agent" data-umami-event="copy-install-agent">Copy</button>
-      </div>
-      <p class="alt">Prefer npm? <code>npm i -g agent-notch</code> then <code>notch</code>. Start at logon with <code>notch autostart</code>.</p>
-    </div>
-  </section>
 
   <section>
     <div class="wrap">
@@ -318,6 +301,24 @@
           <p class="buynote">License key by email; download the Windows installer with it.<br><a href="https://www.virustotal.com/gui/file/ed9001814eb8d3d55e2a443d797903d87fbe1f24333b837f53ec0a3da8798549" target="_blank" rel="noopener">VirusTotal: 0/67 clean</a> · <a href="#after-buy">install steps</a></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap narrow">
+      <h2>Install in <em>one line</em></h2>
+      <p class="sub">Paste this into PowerShell. No admin rights. It installs the notch and starts it.</p>
+      <div class="install">
+        <code><span class="prompt">PS&gt;</span><span id="cmd">irm https://raw.githubusercontent.com/adityarya24/agent-notch/main/install.ps1 | iex</span></code>
+        <button class="copy" type="button" data-copy="cmd" data-umami-event="copy-install">Copy</button>
+      </div>
+      <p class="sub" style="margin-top:22px">Or let your AI agent do it. Paste this into Claude Code, Codex, Gemini or Grok. It works for Free and Pro.</p>
+      <div class="install">
+        <code><span id="cmd-agent">Install Agent Notch by following https://yuvaanlabs.com/agent-notch/install.md</span></code>
+        <button class="copy" type="button" data-copy="cmd-agent" data-umami-event="copy-install-agent">Copy</button>
+      </div>
+      <p class="alt">Want the jump to the terminal, Allow/Deny from the notch and done alerts? <a href="#pricing" data-umami-event="install-see-pro">That's Pro</a>, $4.99 one-time.</p>
+      <p class="alt">Prefer npm? <code>npm i -g agent-notch</code> then <code>notch</code>. Start at logon with <code>notch autostart</code>.</p>
     </div>
   </section>
 
