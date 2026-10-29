@@ -99,7 +99,8 @@
     .chip { background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
     .chip.soft { color: var(--faint); }
 
-    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .plans { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 560px; margin: 0 auto; }
+    .lite { text-align: center; font-size: 14px; color: var(--muted); margin-top: 18px; }
     .plan { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; }
     .plan.pro { background: var(--notch); color: var(--code-ink); border-color: var(--notch); }
     .plan .name { font: 500 12px "JetBrains Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
@@ -187,8 +188,7 @@
         <h1>Agent <em>Notch</em></h1>
         <p class="lede"><strong style="color:var(--ink);font-weight:600">A fuel gauge for your AI limits.</strong> Every agent's quota, live, on the edge of your screen, so you see the wall coming.</p>
         <div class="cta">
-          <a class="btn btn-dark" href="#pricing" data-umami-event="hero-install">Install free</a>
-          <a class="btn btn-line" href="#pricing" data-umami-event="hero-pro">See Pro →</a>
+          <a class="btn btn-dark" href="#pricing" data-umami-event="hero-pro">Get Pro, $4.99</a>
         </div>
         <p class="meta">Windows · open source (MIT) · no account · macOS in progress · <a href="changelog/">What's new</a></p>
       </div>
@@ -268,25 +268,12 @@
       <h2>Free for the glance. <em>Pro for the jump.</em></h2>
       <p class="sub">The notch stays free and open source. Pro is for when you want the notch to take you to the work, not just show it.</p>
       <div class="plans">
-        <div class="plan">
-          <div class="name">Free</div>
-          <div class="price">$0</div>
-          <p class="note">Open source, MIT. Yours to keep.</p>
-          <ul>
-            <li>Live quota rings for 6 agents</li>
-            <li>Alerts at your threshold</li>
-            <li>Activity glow for any CLI</li>
-            <li>Custom CLIs and ring order</li>
-            <li>Works with Hivelane (handoff banner)</li>
-            <li>More providers coming: GitHub Copilot, Kimi, Amp</li>
-          </ul>
-          <a class="btn btn-line" href="#install" data-umami-event="plan-free">Install free</a>
-        </div>
         <div class="plan pro">
           <div class="name">Pro</div>
           <div class="price">$4.99 <small>one-time</small></div>
-          <p class="note">Early-bird price for the first 100, then $8.99. No subscription. Everything in Free, plus:</p>
+          <p class="note">Early-bird price for the first 100, then $8.99. No subscription.</p>
           <ul>
+            <li>Live quota rings for 6 agents, alerts and activity glow</li>
             <li>Click a ring, jump to that agent's terminal</li>
             <li>"Waiting on you" alert when an agent needs input</li>
             <li>"Done" alert when an agent finishes its task</li>
@@ -301,13 +288,14 @@
           <p class="buynote">License key by email; download the Windows installer with it.<br><a href="https://www.virustotal.com/gui/file/ed9001814eb8d3d55e2a443d797903d87fbe1f24333b837f53ec0a3da8798549" target="_blank" rel="noopener">VirusTotal: 0/67 clean</a> · <a href="#after-buy">install steps</a></p>
         </div>
       </div>
+      <p class="lite">Only want the quota rings? The open-source lite is free: <a href="#install" data-umami-event="plan-free">install it</a> or see it on <a href="https://github.com/adityarya24/agent-notch" target="_blank" rel="noopener">GitHub</a>.</p>
     </div>
   </section>
 
   <section id="install">
     <div class="wrap narrow">
       <h2>Install in <em>one line</em></h2>
-      <p class="sub">Paste this into PowerShell. No admin rights. It installs the notch and starts it.</p>
+      <p class="sub">Paste this into PowerShell to get the free lite. No admin rights. It installs the notch and starts it.</p>
       <div class="install">
         <code><span class="prompt">PS&gt;</span><span id="cmd">irm https://raw.githubusercontent.com/adityarya24/agent-notch/main/install.ps1 | iex</span></code>
         <button class="copy" type="button" data-copy="cmd" data-umami-event="copy-install">Copy</button>
