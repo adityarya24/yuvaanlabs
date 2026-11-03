@@ -254,6 +254,10 @@
     .ring { width: 34px; height: 34px; }
     .clip { border-radius: 12px; overflow: hidden; background: #111113; aspect-ratio: 5/3; margin-bottom: 4px; }
     .clip video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .tb { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: center; }
+    .tb .clip { aspect-ratio: 16/9; margin: 0; }
+    .tb ul { list-style: none; display: grid; gap: 14px; color: var(--muted); font-size: 15px; }
+    .tb li strong { color: var(--ink); font-weight: 600; }
     .card .tag { border-color: var(--line); color: var(--muted); }
 
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -311,6 +315,7 @@
       .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; }
       .lede { max-width: none; }
       .grid3 { grid-template-columns: 1fr; }
+      .tb { grid-template-columns: 1fr; }
       .plans { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
@@ -379,6 +384,22 @@
           <h3>Sees who's working</h3>
           <p>A ring glows while that agent is busy, so you can tell at a glance which session is still running.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Now in your <em>taskbar</em></h2>
+      <p class="sub">New in Pro 1.8. Switch Display to Taskbar in Settings and your rings sit in the empty part of the Windows 11 taskbar, always visible.</p>
+      <div class="tb">
+        <div class="card"><div class="clip"><video src="media/04-taskbar.mp4" poster="media/04-taskbar-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Hovering taskbar rings shows each agent's quota card; a Claude question card appears above the taskbar and is answered with one tap"></video></div></div>
+        <ul>
+          <li><strong>Hover a ring</strong> for the exact session and weekly numbers, on a card just above the taskbar.</li>
+          <li><strong>Answer Claude from the taskbar.</strong> When Claude Code asks, tap an option and it keeps going.</li>
+          <li><strong>Out of the way in fullscreen.</strong> The strip hides during a video, game or slideshow and comes back after.</li>
+          <li><strong>Blends in</strong> with no background of its own, or pick a dark pill. Notch mode is still one switch away.</li>
+        </ul>
       </div>
     </div>
   </section>
