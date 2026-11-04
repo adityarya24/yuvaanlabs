@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f4f0" />
+  <title>Claude Code usage limits: check them live on Windows</title>
+  <meta name="description" content="How Claude Code's 5-hour session and weekly limits work on Pro and Max, how to check them with /usage, and how to keep them visible on your Windows taskbar." />
+  <link rel="canonical" href="https://yuvaanlabs.com/agent-notch/limits/claude-code/" />
+  <meta property="og:title" content="Claude Code usage limits: check them live on Windows" />
+  <meta property="og:description" content="How Claude Code's 5-hour session and weekly limits work on Pro and Max, how to check them with /usage, and how to keep them visible on your Windows taskbar." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yuvaanlabs.com/agent-notch/limits/claude-code/" />
+  <meta property="og:image" content="https://yuvaanlabs.com/agent-notch/poster.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='20' y='4' width='24' height='56' rx='12' fill='%2311110f'/><circle cx='32' cy='20' r='6' fill='none' stroke='%23f5a524' stroke-width='3'/><circle cx='32' cy='38' r='6' fill='none' stroke='%2334d399' stroke-width='3'/></svg>" />
+  <link rel="preload" href="/fonts/inter-6ab57b19c6.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/newsreader-6374b9bd35.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/inter-b6db4a06c1.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/inter-6ab57b19c6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/inter-b6db4a06c1.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/inter-6ab57b19c6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/inter-b6db4a06c1.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/inter-6ab57b19c6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/newsreader-20725a1622.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/newsreader-97c9a2c1e6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/newsreader-fb794a114a.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/newsreader-6374b9bd35.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+  </style>
+  <style>
+    :root { --bg:#f5f4f0; --ink:#14130f; --muted:#5f5d57; --faint:#8d8a82; --line:#e3e0d8; --amber-deep:#b86e00; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--ink); font:16px/1.7 "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:var(--amber-deep); text-decoration:none; }
+    a:hover { text-decoration:underline; text-underline-offset:3px; }
+    .wrap { max-width:720px; margin:0 auto; padding:0 16px; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:22px 0; font-size:14px; }
+    nav .mark { font-weight:600; color:var(--ink); }
+    nav .links { display:flex; gap:16px; }
+    nav .links a { color:var(--muted); }
+    h1 { font:400 clamp(36px,6vw,52px)/1.08 "Newsreader", Georgia, serif; letter-spacing:-.015em; margin:32px 0 8px; }
+    .updated { color:var(--faint); font-size:14px; margin-bottom:32px; }
+    h2 { font:500 19px/1.4 "Inter", sans-serif; margin:32px 0 8px; }
+    p, li { color:var(--muted); }
+    p + p { margin-top:12px; }
+    ul { padding-left:20px; margin-top:8px; }
+    li + li { margin-top:6px; }
+    strong { color:var(--ink); font-weight:600; }
+    footer { margin-top:56px; padding:32px 0 48px; border-top:1px solid var(--line); font-size:14px; color:var(--faint); display:flex; flex-wrap:wrap; gap:8px 16px; }
+    footer a { color:var(--muted); }
+  </style>
+  <style>
+    .lede { font-size:18px; color:var(--ink); margin-bottom:8px; }
+    .shot { margin:24px 0 8px; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:#0c1530; }
+    .shot img { display:block; width:100%; height:auto; }
+    .cap { font-size:13px; color:var(--faint); }
+    table { width:100%; border-collapse:collapse; margin-top:12px; font-size:15px; }
+    th, td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--ink); font-weight:600; }
+    td { color:var(--muted); }
+    code { font:14px ui-monospace, SFMono-Regular, Menlo, monospace; background:#ebe8e0; padding:1px 5px; border-radius:4px; color:var(--ink); }
+    .cta { margin-top:32px; padding:20px; border:1px solid var(--line); border-radius:12px; background:#fbfaf7; }
+    .cta p { color:var(--ink); }
+    .cta a.btn { display:inline-block; margin-top:12px; padding:10px 16px; border-radius:999px; background:var(--ink); color:var(--bg); font-weight:500; }
+    .cta a.btn:hover { text-decoration:none; opacity:.9; }
+    .src { font-size:14px; }
+    .cards { list-style:none; padding:0; }
+    .cards li { padding:14px 0; border-bottom:1px solid var(--line); }
+    .cards li + li { margin-top:0; }
+    .cards a { font-weight:600; }
+  </style>
+  <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Code usage limits: check them live on Windows", "description": "How Claude Code's 5-hour session and weekly limits work on Pro and Max, how to check them with /usage, and how to keep them visible on your Windows taskbar.", "dateModified": "2026-11-04", "url": "https://yuvaanlabs.com/agent-notch/limits/claude-code/", "author": {"@type": "Person", "name": "Aditya Arya", "url": "https://adityarya.dev/"}, "publisher": {"@type": "Organization", "name": "Yuvaan Labs", "url": "https://yuvaanlabs.com/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Agent Notch", "item": "https://yuvaanlabs.com/agent-notch/"}, {"@type": "ListItem", "position": 2, "name": "Usage limits", "item": "https://yuvaanlabs.com/agent-notch/limits/"}, {"@type": "ListItem", "position": 3, "name": "Claude Code usage limits", "item": "https://yuvaanlabs.com/agent-notch/limits/claude-code/"}]}]</script>
+  <script defer data-website-id="6p312f2t1g455f6y" src="https://analytics.yuvaanlabs.com/js/script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="mark" href="../../">Agent Notch</a>
+      <span class="links"><a href="../../limits/">Usage limits</a><a href="../../changelog/">Changelog</a></span>
+    </nav>
+    <main>
+      <h1>Claude Code usage limits</h1>
+      <p class="updated">Updated 4 November 2026. Limits change; the sources below have the current numbers.</p>
+
+      <p class="lede">On a Pro or Max plan, Claude Code runs on two limits at once: a five-hour session limit and a weekly limit. Hitting either one stops you until it resets.</p>
+
+      <h2>How the limits work</h2>
+      <ul>
+        <li><strong>Five-hour session limit.</strong> When it fills up you wait for it to reset.</li>
+        <li><strong>Weekly limit.</strong> A cap across the whole week, on top of the session limit.</li>
+        <li><strong>Shared with Claude.</strong> Anthropic says these limits "are shared across Claude and Claude Code", so chatting in Claude and coding in Claude Code use the same allowance.</li>
+        <li><strong>Max</strong> also has a separate weekly limit for some models.</li>
+      </ul>
+
+      <h2>How to check it inside Claude Code</h2>
+      <p>Type <code>/usage</code> in a Claude Code session. It shows your plan usage limits, and on Pro, Max, Ultra, Team and Enterprise plans a breakdown of what counts against them. <code>/cost</code> and <code>/stats</code> open the same screen. Claude Code also warns you as you get close to a limit.</p>
+      <p>The catch: you only see it when you ask, inside one terminal. If you run several sessions, or Claude Code next to Codex or Antigravity, you end up typing <code>/usage</code> a lot.</p>
+
+      <h2>Keep it on screen instead</h2>
+      <p>Agent Notch reads the same usage Claude Code uses, from the sign-in already on your computer, and shows it as a ring: the session window and the weekly window, each with its reset time when you hover. Nothing goes to us; the request goes straight from your computer to Anthropic.</p>
+      <figure class="shot"><img src="/agent-notch/media/taskbar-rings-percent.webp" width="560" height="100" alt="Agent Notch rings in the Windows 11 taskbar, each with its usage percent underneath" loading="lazy" /></figure>
+      <p class="cap">Agent Notch Pro in taskbar mode on a Windows 11 laptop: one ring per agent, usage percent underneath.</p>
+
+      <h2>What the ring tells you</h2>
+      <table>
+        <tr><th>You see</th><th>It means</th></tr>
+        <tr><td>Green, amber or red ring with <code>33%</code></td><td>Fresh reading. The colour turns amber, then red, as you get close to the limit.</td></tr>
+        <tr><td>Grey ring with <code>~33%</code></td><td>The last good reading, but it is getting old. Hover the ring and the card says how old, for example "as of 12m ago".</td></tr>
+        <tr><td><code>—</code></td><td>Agent Notch can't read this agent's usage right now, so it doesn't guess.</td></tr>
+        <tr><td><code>login</code> in amber</td><td>The agent's sign-in has expired. Sign in again in that tool.</td></tr>
+      </table>
+      <div class="cta">
+        <p><strong>Agent Notch</strong> shows Claude Code's session and weekly usage on your Windows screen, next to your other agents, without opening a terminal.</p>
+        <p class="cap">Free version on the notch at the top of the screen. Pro ($4.99 one-time, early-bird) adds the taskbar rings, alerts when an agent waits on you, and one click to its terminal.</p>
+        <a class="btn" href="../../">See Agent Notch</a>
+      </div>
+
+      <p class="src" style="margin-top:24px">More: <a href="../codex/">Codex usage limits</a> · <a href="../antigravity/">Antigravity quota and limits</a> · <a href="../">All agents</a></p>
+
+      <h2>Sources</h2>
+      <ul class="src"><li><a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Anthropic: Using Claude Code with your Pro or Max plan</a></li><li><a href="https://code.claude.com/docs/en/commands" target="_blank" rel="noopener">Claude Code docs: commands (/usage)</a></li></ul>
+    </main>
+    <footer>
+      <a href="../../">Agent Notch</a>
+      <a href="../../limits/">Usage limits</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="../../terms/">Terms</a>
+      <a href="../../changelog/">Changelog</a>
+      <a href="mailto:support@yuvaanlabs.com">support@yuvaanlabs.com</a>
+    </footer>
+  </div>
+</body>
+</html>

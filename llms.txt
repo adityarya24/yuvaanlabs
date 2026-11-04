@@ -8,6 +8,7 @@ Contact: support@yuvaanlabs.com. Products are sold as one-time payments, not sub
 - [Agent Notch](https://yuvaanlabs.com/agent-notch/): live quota for Claude Code, Codex, Gemini, Cursor, Grok and OpenCode in a slim notch on the Windows screen. Windows 10 and 11. Free and open source (MIT); Pro is $4.99 one-time for the first 100 buyers, then $8.99, and adds click-to-terminal.
 - [Agent Notch install guide for agents](https://yuvaanlabs.com/agent-notch/install.md): steps a coding agent can follow to install Agent Notch.
 - [Agent Notch changelog](https://yuvaanlabs.com/agent-notch/changelog/)
+- [AI coding agent usage limits](https://yuvaanlabs.com/agent-notch/limits/): how Claude Code, Codex and Antigravity limits work and how to check each ([Claude Code](https://yuvaanlabs.com/agent-notch/limits/claude-code/), [Codex](https://yuvaanlabs.com/agent-notch/limits/codex/), [Antigravity](https://yuvaanlabs.com/agent-notch/limits/antigravity/)).
 - [Hivelane](https://yuvaanlabs.com/hivelane/): routes tasks to Claude Code, Codex or Cursor, runs workers in their own git worktrees, hands work on when a seat runs low and keeps one shared memory. Local-first. Windows and Linux; macOS in private beta. 7-day trial, no card; Founders Edition is $29 one-time for the first 100 buyers, then $49.
 - [VedPatrika](https://vedpatrika.in/): Vedic astrology in Hindi and English: free kundli tools and a paid Janma Patrika report.
 
