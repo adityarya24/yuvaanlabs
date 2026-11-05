@@ -159,9 +159,22 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.8.3, 4 November 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.8.4, 5 November 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.8.4</h2>
+      <p class="updated">5 November 2026 · Pro</p>
+      <h3>Changed</h3>
+      <ul>
+        <li>Taskbar mode now measures your real taskbar instead of guessing. It finds the empty space between your app buttons and the system tray, and treats windows of other tools sitting on the taskbar (like TrafficMonitor) as taken, so the rings no longer land on top of them. On the Right side the rings now sit right next to the tray.</li>
+        <li>Refresh and Settings moved into the quota card that opens when you hover a ring. The card stays open while your mouse is on it, so the buttons are easy to reach.</li>
+        <li>Settings tells you how many agents fit on the taskbar (for example "3 of 5 agents fit") when there isn't room for all of them.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>The rings no longer flicker or slip behind the taskbar when you switch between apps.</li>
+        <li>Settings saved by some Windows tools (with a hidden BOM marker at the start of the file) are now read correctly instead of being ignored.</li>
+      </ul>
       <h2>1.8.3</h2>
       <p class="updated">4 November 2026 · Pro</p>
       <h3>Added</h3>
