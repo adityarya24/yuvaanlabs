@@ -159,9 +159,27 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.8.4, 5 November 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.9.0, 16 November 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.9.0</h2>
+      <p class="updated">16 November 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>Antigravity quota stays live with Antigravity closed. Google's sign-in token lasts an hour, and until now only Antigravity itself could renew it, so the card went to "Sign-in expired" until you opened the IDE or ran the CLI again. Agent Notch now renews it on its own, using the sign-in and the Antigravity install already on your computer. Nothing new is stored and nothing is sent anywhere except Google.</li>
+        <li>Settings → "Finished sound": an optional soft chime when an agent finishes. Off by default; the waiting sound has its own switch as before.</li>
+        <li>Taskbar mode now works with "Automatically hide the taskbar" on. The rings slide away with the taskbar and come back with it; while your pointer is on the rings or their card, they stay so you can finish reading. Before, Taskbar mode switched itself off and fell back to the notch.</li>
+      </ul>
+      <h3>Changed</h3>
+      <ul>
+        <li>Settings is now four short tabs (Agents, Display, Alerts, Pro) in a fixed-size window instead of one long scrolling list.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>The waiting sound now plays from Agent Notch itself instead of relying on the Windows notification. Before, Do Not Disturb, Focus assist or a muted notification sound silenced it even with "Waiting alert sound" on.</li>
+        <li>If Agent Notch ever freezes, it now restarts itself after 90 seconds (at most three times an hour). A frozen ring window is reloaded after 30 seconds.</li>
+        <li>The log (<code>electron_boot.log</code>) now records why Agent Notch stopped: Quit from the tray, a Windows sign-out, an update, or an unexpected end with the time it was last running. This makes "it was gone when I came back" reports traceable.</li>
+      </ul>
       <h2>1.8.4</h2>
       <p class="updated">5 November 2026 · Pro</p>
       <h3>Changed</h3>
