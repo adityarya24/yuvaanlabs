@@ -159,9 +159,17 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.9.0, 16 November 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.9.1, 18 November 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.9.1</h2>
+      <p class="updated">18 November 2026 · Pro</p>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Taskbar mode: the rings no longer jump between the left and right of the taskbar. Windows sometimes answers "no buttons" when asked where the taskbar buttons are, and Agent Notch took that as "no room on the left" and moved the rings to the tray side, even with Left picked. Those empty answers are now ignored.</li>
+        <li>Taskbar mode with the side set to Auto: the rings stay on the side they are on while they still fit there, instead of re-picking a side every time an agent's ring comes and goes. They move only when that side runs out of room.</li>
+        <li>Tray → "Enter license key…" now opens Settings on the Pro tab with the key box ready to paste into. Before, it opened on the Agents tab and you had to find the Pro tab yourself. "See Pro" in the Alerts tab does the same.</li>
+      </ul>
       <h2>1.9.0</h2>
       <p class="updated">16 November 2026 · Pro</p>
       <h3>Added</h3>
