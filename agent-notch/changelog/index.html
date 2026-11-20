@@ -159,9 +159,20 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.9.1, 18 November 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.9.2, 20 November 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.9.2</h2>
+      <p class="updated">20 November 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>Antigravity now shows its two limit groups separately. Google gives Gemini models (Flash, Pro) and Claude and GPT models their own 5-hour and weekly limits; the card shows the group you are using right now, with its name and models, and the other group on a short line below. Before, both groups were merged into one number.</li>
+        <li>The Claude Code and Codex cards show the model you have set (from your Claude Code settings and Codex config). If your plan has a separate limit for a model and the usage data includes it, it gets its own line. Codex also says when your model is unavailable and until when.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>Antigravity: a limit you had fully used up could show as 0% used. Google leaves the "remaining" number out when nothing is left, and Agent Notch skipped it. It now shows 100%.</li>
+      </ul>
       <h2>1.9.1</h2>
       <p class="updated">18 November 2026 · Pro</p>
       <h3>Fixed</h3>
