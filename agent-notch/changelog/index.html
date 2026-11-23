@@ -159,9 +159,27 @@
     </nav>
     <main>
       <h1>Changelog</h1>
-      <p class="updated">Latest: Pro 1.9.5, 23 November 2026 · Free 1.4.3</p>
+      <p class="updated">Latest: Pro 1.9.6, 23 November 2026 · Free 1.4.3</p>
       <p>What changed in each release, newest first. Back to <a href="../">Agent Notch</a>.</p>
       <!-- CHANGELOG-START -->
+      <h2>1.9.6</h2>
+      <p class="updated">23 November 2026 · Pro</p>
+      <h3>Added</h3>
+      <ul>
+        <li>The Claude Code, Codex and Cursor cards show which account you are signed in with.</li>
+        <li>Cards show the reasoning effort next to the model when your tool has one set (Codex, Claude Code, Grok and Antigravity), for example "Gemini 4 Neon · Medium".</li>
+      </ul>
+      <h3>Changed</h3>
+      <ul>
+        <li>Every card now uses the same header: the model and its effort, with the limit group under it when there is one.</li>
+      </ul>
+      <h3>Fixed</h3>
+      <ul>
+        <li>The Cursor card shows your current plan (for example "Plus"). It used to show an old plan, such as "Express", after you changed plans.</li>
+        <li>The Claude Code card no longer goes grey a few minutes after you sign in. When Anthropic's usage server is busy, the card keeps your last reading for up to an hour, and it asks Anthropic less often.</li>
+        <li>A reply that just ends in a question, like "How does that look?", now glows for 2 minutes instead of 30. Approvals and real questions still wait until you answer.</li>
+        <li>In Taskbar mode the rings keep your order. A ring that finished a reply no longer jumps to the front and back when all rings fit.</li>
+      </ul>
       <h2>1.9.5</h2>
       <p class="updated">23 November 2026 · Pro</p>
       <h3>Fixed</h3>
