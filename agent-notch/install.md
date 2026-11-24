@@ -4,7 +4,7 @@ You are an AI coding agent (Claude Code, Codex, Gemini, Grok, Cursor…) helping
 Agent Notch on **Windows 10 or 11**. Follow these steps exactly. Run commands in **PowerShell**,
 as the normal user (no admin). Tell the person what you are doing at each step.
 
-If the computer is not Windows, stop and say: "Agent Notch runs on Windows only."
+If the computer is a Mac, stop and say: "The free Agent Notch is Windows only. Agent Notch Pro runs on Macs with Apple silicon: download it with your Pro key at https://yuvaanlabs.com/agent-notch/download/ and follow the Mac steps there." On any other system, stop and say: "Agent Notch runs on Windows and, with Pro, on Mac."
 
 ## 1. Ask which edition
 
