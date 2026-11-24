@@ -256,8 +256,8 @@
     .clip video { width: 100%; height: 100%; display: block; object-fit: cover; }
     .tb { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: center; }
     .tb .clip { aspect-ratio: 16/9; margin: 0; }
-    .tb .clip.mac { aspect-ratio: auto; background: #4f86bf; }
-    .tb .clip.mac img { width: 100%; height: auto; display: block; }
+    .tb .clip.mac { aspect-ratio: auto; background: none; max-width: 400px; margin: 0 auto; }
+    .tb .clip.mac video { width: 100%; height: auto; display: block; }
     .tb ul { list-style: none; display: grid; gap: 14px; color: var(--muted); font-size: 15px; }
     .tb li strong { color: var(--ink); font-weight: 600; }
     .card .tag { border-color: var(--line); color: var(--muted); }
@@ -395,7 +395,7 @@
       <h2>Now on your <em>Mac</em></h2>
       <p class="sub">New in Pro 1.9.8. On a Mac with Apple silicon (M1 or newer), the rings sit around the camera notch.</p>
       <div class="tb">
-        <div class="card"><div class="clip mac"><img src="media/mac-allow-deny.webp" width="960" height="440" loading="lazy" alt="On a MacBook notch, Agent Notch shows a Codex ring and a Claude ring, with a card below: Claude wants to use Write, with Deny and Allow buttons"></div></div>
+        <div class="card"><div class="clip mac"><video src="media/mac-demo.mp4" poster="media/mac-demo-poster.webp" width="880" height="1000" autoplay muted loop playsinline preload="metadata" aria-label="On a MacBook notch, the Claude ring spins while it works, then hovering each ring shows its quota card: Codex, Claude Code, Antigravity, Cursor, OpenCode and Grok"></video></div></div>
         <ul>
           <li><strong>Hidden in the notch</strong> until your pointer reaches it, an agent needs you, or one finishes. Or set Show rings to Always.</li>
           <li><strong>Allow or Deny Claude Code</strong> prompts right from the notch.</li>
