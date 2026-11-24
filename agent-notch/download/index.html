@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f5f4f0" />
   <meta name="robots" content="noindex" />
   <title>Download Agent Notch Pro</title>
-  <meta name="description" content="Agent Notch Pro buyers: paste the license key from your purchase email to download the Windows installer." />
+  <meta name="description" content="Agent Notch Pro buyers: paste the license key from your purchase email to download the installer for Windows or Mac." />
   <link rel="canonical" href="https://yuvaanlabs.com/agent-notch/download/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='20' y='4' width='24' height='56' rx='12' fill='%2311110f'/><circle cx='32' cy='20' r='6' fill='none' stroke='%23f5a524' stroke-width='3'/><circle cx='32' cy='38' r='6' fill='none' stroke='%2334d399' stroke-width='3'/></svg>" />
   <link rel="preload" href="/fonts/inter-6ab57b19c6.woff2" as="font" type="font/woff2" crossorigin />
@@ -161,6 +161,12 @@
     .status a { font-weight:500; }
     .note { margin-top:14px; font-size:14px; color:var(--faint); }
 
+    .os { display:flex; gap:8px; margin:0 0 16px; padding:0; border:0; }
+    .os legend { font-size:14px; color:var(--muted); margin-bottom:8px; }
+    .os label { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:15px; color:var(--ink); cursor:pointer; background:var(--bg); }
+    .os input { width:auto; padding:0; accent-color:var(--amber-deep); }
+    .os label:has(input:checked) { border-color:var(--amber); background:var(--paper); }
+    [data-os-only][hidden] { display:none; }
     .steps { list-style:none; counter-reset:step; display:grid; gap:12px; }
     .steps li { counter-increment:step; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:18px 22px 18px 60px; position:relative; font-size:15px; }
     .steps li::before { content:counter(step); position:absolute; left:20px; top:18px; font:500 13px "JetBrains Mono", monospace; color:var(--amber-deep); border:1px solid var(--line); border-radius:999px; width:26px; height:26px; display:flex; align-items:center; justify-content:center; }
@@ -185,9 +191,14 @@
     </nav>
     <main>
       <h1>Download <em>Agent Notch Pro</em></h1>
-      <p class="lede">Paste the license key from your purchase email, then click Download. Works on Windows 10 and 11.</p>
+      <p class="lede">Pick your computer, paste the license key from your purchase email, then click Download. Works on Windows 10 and 11, and on Macs with Apple silicon (M1 or newer).</p>
 
       <form class="card" id="f" autocomplete="off" novalidate>
+        <fieldset class="os">
+          <legend>Your computer</legend>
+          <label><input type="radio" name="os" value="windows" checked /> Windows</label>
+          <label><input type="radio" name="os" value="mac" /> Mac</label>
+        </fieldset>
         <label for="key">License key</label>
         <div class="field">
           <div class="input">
@@ -201,10 +212,17 @@
       </form>
 
       <h2>After it downloads</h2>
-      <ol class="steps">
+      <ol class="steps" data-os-only="windows">
         <li><strong>Run the installer.</strong> Windows may say "Windows protected your PC", because the app isn't code-signed yet. Click <em>More info</em>, then <em>Run anyway</em>. The installer is <a href="https://www.virustotal.com/gui/file/d9db79b15ca1af2f871520b729a89fe5a0ac6cbcb812d13e364fc8a841ed1caf" target="_blank" rel="noopener">scanned on VirusTotal</a>, and you can check the file yourself: SHA-256 <code class="hash">d9db79b15ca1af2f871520b729a89fe5a0ac6cbcb812d13e364fc8a841ed1caf</code>.</li>
         <li><strong>Enter your key.</strong> Right-click the Agent Notch tray icon, choose "Enter license key...", and paste the key from your purchase email.</li>
-        <li><strong>Turn on the alerts.</strong> Open Settings and click "Install agent waiting hooks". Claude Code, Codex, Gemini and OpenCode can then tell the notch when they ask you something, need approval, or are done.</li>
+        <li><strong>Turn on the alerts.</strong> Open Settings, find Agent hooks and click Install next to each agent you use. Claude Code, Codex, Gemini and OpenCode can then tell the notch when they ask you something, need approval, or are done.</li>
+      </ol>
+      <ol class="steps" data-os-only="mac" hidden>
+        <li><strong>Install it.</strong> Open the downloaded <code>.dmg</code> and drag Agent Notch Pro into Applications. The DMG is <a href="https://www.virustotal.com/gui/file/3c4b578383653c047dc2a44d82353d6deef5242ee4680c66532c6ff3aa28bc09" target="_blank" rel="noopener">scanned on VirusTotal</a> (0 of 60 engines flag it), and you can check the file yourself: SHA-256 <code class="hash">3c4b578383653c047dc2a44d82353d6deef5242ee4680c66532c6ff3aa28bc09</code>.</li>
+        <li><strong>Open it the first time.</strong> The app isn't signed with an Apple developer ID yet, so macOS stops the first launch. Open Agent Notch Pro once and close the warning, then go to System Settings, Privacy &amp; Security, scroll down and click <em>Open Anyway</em>. After that it opens normally.</li>
+        <li><strong>Enter your key.</strong> Click the Agent Notch icon in the menu bar, choose "Enter license key...", and paste the key from your purchase email.</li>
+        <li><strong>Turn on the alerts.</strong> Open Settings, find Agent hooks and click Install next to Claude Code and Codex. They can then tell the notch when they need approval or are done, and you can allow or deny from the notch.</li>
+        <li><strong>Updates.</strong> On Mac, updates are a manual download for now: come back to this page with your key and install the new version over the old one. Your settings and key stay.</li>
       </ol>
       <p style="margin-top:20px">Stuck? Write to <a href="mailto:support@yuvaanlabs.com">support@yuvaanlabs.com</a>.</p>
     </main>
@@ -231,6 +249,18 @@
         btn = document.getElementById("go"), st = document.getElementById("status"),
         tg = document.getElementById("tg");
 
+    var radios = form.querySelectorAll('input[name="os"]');
+    function os() { var r = form.querySelector('input[name="os"]:checked'); return r ? r.value : "windows"; }
+    function showSteps() {
+      var lists = document.querySelectorAll("[data-os-only]");
+      for (var i = 0; i < lists.length; i++) lists[i].hidden = lists[i].getAttribute("data-os-only") !== os();
+    }
+    if (/Mac/.test(navigator.platform || "") || /Macintosh/.test(navigator.userAgent || "")) {
+      for (var i = 0; i < radios.length; i++) radios[i].checked = radios[i].value === "mac";
+    }
+    for (var j = 0; j < radios.length; j++) radios[j].addEventListener("change", showSteps);
+    showSteps();
+
     function say(html, cls) { st.className = "status" + (cls ? " " + cls : ""); st.innerHTML = html; }
 
     tg.addEventListener("click", function () {
@@ -250,7 +280,7 @@
       fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ license_key: key }),
+        body: JSON.stringify({ license_key: key, platform: os() }),
         credentials: "omit",
         cache: "no-store",
         referrerPolicy: "no-referrer",
