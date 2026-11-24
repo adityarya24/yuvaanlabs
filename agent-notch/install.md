@@ -50,10 +50,10 @@ Errors from the request: **403** = the key is not valid (ask them to check their
 **Check the file before running it.** The SHA-256 printed above must equal (case does not matter):
 
 ```
-d9db79b15ca1af2f871520b729a89fe5a0ac6cbcb812d13e364fc8a841ed1caf
+a114a6bc72021a85a4634dbf34a6ce01348947262cb1b4895f6989a4a92751e2
 ```
 
-This is version <!-- PRO-VERSION -->1.9.7<!-- /PRO-VERSION -->. If the hash differs, **do not run the file**.
+This is version <!-- PRO-VERSION -->1.9.11<!-- /PRO-VERSION -->. If the hash differs, **do not run the file**.
 Delete it and tell the person to write to support@yuvaanlabs.com.
 
 If it matches, install silently (per user, no admin) and start the app:
