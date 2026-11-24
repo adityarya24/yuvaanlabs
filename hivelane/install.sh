@@ -1,5 +1,5 @@
 #!/bin/sh
-# Hivelane installer for Linux.
+# Hivelane installer for Linux and macOS (Apple silicon).
 #   curl -fsSL https://yuvaanlabs.com/hivelane/install.sh | sh
 # Re-run it to update. Your data and licence live in ~/.hivelane and are kept.
 set -eu
@@ -11,15 +11,20 @@ BIN_DIR="${HIVELANE_BIN_DIR:-$HOME/.local/bin}"
 say() { printf '%s\n' "$*"; }
 die() { printf 'hivelane install: %s\n' "$*" >&2; exit 1; }
 
-[ "$(uname -s)" = "Linux" ] || die "this installer is for Linux. On Windows use install.ps1; macOS is in beta."
-case "$(uname -m)" in
-  x86_64|amd64) ARCH=x64 ;;
-  *) die "only x86_64 Linux is supported for now (found $(uname -m))." ;;
+case "$(uname -s)/$(uname -m)" in
+  Linux/x86_64|Linux/amd64) NAME="hivelane-linux-x64" ;;
+  Darwin/arm64) NAME="hivelane-macos-arm64" ;;
+  Darwin/*) die "on macOS only Apple silicon (M1 or newer) is supported for now." ;;
+  Linux/*) die "only x86_64 Linux is supported for now (found $(uname -m))." ;;
+  *) die "this installer is for Linux and macOS. On Windows use install.ps1." ;;
 esac
-NAME="hivelane-linux-$ARCH"
 command -v curl >/dev/null 2>&1 || die "curl is required."
 command -v tar >/dev/null 2>&1 || die "tar is required."
-command -v sha256sum >/dev/null 2>&1 || die "sha256sum is required."
+# Older macOS has only shasum; macOS 26 has a BSD sha256sum without --status.
+# Both print "<hash>  <file>", so the hash is compared as text.
+if command -v sha256sum >/dev/null 2>&1; then SHA256="sha256sum"
+elif command -v shasum >/dev/null 2>&1; then SHA256="shasum -a 256"
+else die "sha256sum (or shasum) is required."; fi
 
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT INT TERM
@@ -32,7 +37,8 @@ SUM="$(grep " \*\{0,1\}$NAME.tar.gz\$" "$TMP/SHA256SUMS" | cut -d' ' -f1)"
 [ -n "$SUM" ] || die "no checksum published for $NAME.tar.gz. Nothing was installed."
 say "Downloading Hivelane ($NAME)..."
 curl -fSL --progress-bar "$BASE/$NAME.tar.gz?sha256=$SUM" -o "$TMP/$NAME.tar.gz"
-printf '%s  %s\n' "$SUM" "$TMP/$NAME.tar.gz" | sha256sum -c --status \
+GOT="$($SHA256 "$TMP/$NAME.tar.gz" | cut -d' ' -f1)"
+[ "$GOT" = "$SUM" ] \
   || die "checksum mismatch: the download is damaged or was changed. Nothing was installed."
 
 tar -xzf "$TMP/$NAME.tar.gz" -C "$TMP"
@@ -67,8 +73,12 @@ case ":$PATH:" in
   *":$BIN_DIR:"*) ;;
   *) PATH_LINE="export PATH=\"$BIN_DIR:\$PATH\"  # added by Hivelane"
      added=""
-     for rc in "$HOME/.profile" "$HOME/.bashrc" "$HOME/.zshrc"; do
-       [ "$rc" = "$HOME/.profile" ] || [ -f "$rc" ] || continue
+     # macOS terminals run zsh and read ~/.zprofile and ~/.zshrc, which a new
+     # Mac may not have yet, so those two are created there.
+     if [ "$(uname -s)" = "Darwin" ]; then RCS="$HOME/.zprofile $HOME/.zshrc $HOME/.bash_profile"; MUST="$HOME/.zprofile $HOME/.zshrc"
+     else RCS="$HOME/.profile $HOME/.bashrc $HOME/.zshrc"; MUST="$HOME/.profile"; fi
+     for rc in $RCS; do
+       case " $MUST " in *" $rc "*) ;; *) [ -f "$rc" ] || continue ;; esac
        grep -qs "# added by Hivelane" "$rc" && continue
        printf '\n%s\n' "$PATH_LINE" >> "$rc" && added="$added ${rc#"$HOME"/}"
      done
